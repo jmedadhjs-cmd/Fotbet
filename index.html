@@ -1,39 +1,136 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fotbet - موقعي الأول</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f4f4f9;
-            color: #333;
-            padding: 20px;
-        }
-        h1 {
-            color: #2c3e50;
-        }
-        p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>خدماتي - ربح المال</title>
+<style>
+:root{
+  --primary:#0f766e;
+  --primary-dark:#115e59;
+  --bg:#f8fafc;
+  --card:#ffffff;
+  --text:#1e293b;
+  --muted:#64748b;
+  --radius:16px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans Arabic', sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+.container{max-width:1100px;margin:0 auto;padding:20px}
+header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 0;
+}
+.logo{font-size:1.6rem;font-weight:800;color:var(--primary)}
+nav a{
+  color:var(--muted);text-decoration:none;margin-right:20px;font-weight:500;
+}
+nav a:hover{color:var(--primary)}
+.hero{
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
+  padding:60px 0;
+}
+.hero h1{font-size:2.8rem;line-height:1.2;margin:0 0 16px;}
+.hero p{font-size:1.15rem;color:var(--muted);margin:0 0 24px;}
+.btn{
+  display:inline-block;padding:14px 28px;border-radius:50px;font-weight:700;
+  text-decoration:none;transition:0.2s;border:none;cursor:pointer;font-size:1rem;
+}
+.btn-primary{background:var(--primary);color:#fff;}
+.btn-primary:hover{background:var(--primary-dark);}
+.btn-outline{background:transparent;color:var(--primary);border:2px solid var(--primary);}
+.btn-outline:hover{background:var(--primary);color:#fff;}
+.services{padding:60px 0;}
+.services h2{text-align:center;font-size:2rem;margin-bottom:40px;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
+.card{
+  background:var(--card);border-radius:var(--radius);padding:30px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.05);border:1px solid #e2e8f0;
+  transition:transform 0.2s;
+}
+.card:hover{transform:translateY(-5px);}
+.card h3{margin:0 0 12px;font-size:1.4rem;}
+.card p{color:var(--muted);margin:0 0 20px;}
+.price{font-size:1.8rem;font-weight:800;color:var(--primary);margin-bottom:20px;}
+.cta{
+  text-align:center;padding:60px 20px;background:var(--primary);color:#fff;border-radius:var(--radius);margin:40px 0;
+}
+.cta h2{margin:0 0 16px;font-size:2rem;}
+.cta p{margin:0 0 24px;opacity:0.9;}
+.cta .btn{background:#fff;color:var(--primary);}
+.cta .btn:hover{background:#f1f5f9;}
+footer{text-align:center;padding:40px 0;color:var(--muted);font-size:0.9rem;}
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr;text-align:center;}
+  .hero h1{font-size:2rem;}
+  nav{display:none;}
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>مرحباً بكم في Fotbet</h1>
-        <p>هذا هو موقعي الأول الذي أنشأته من هاتفي!</p>
-        <p>يمكنني الآن البدء في إضافة المزيد من المحتوى والميزات.</p>
+<div class="container">
+  <header>
+    <div class="logo">خدماتي</div>
+    <nav>
+      <a href="#services">الخدمات</a>
+      <a href="#contact">تواصل</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>أنا <span style="color:var(--primary)">[سميتك]</span>، كنعاون الشركات والأفراد يطورو حضورهم الرقمي</h1>
+      <p>تصميم مواقع، متاجر إلكترونية، وهوية بصرية. خدمة سريعة وجودة عالية بثمن مناسب.</p>
+      <a href="#contact" class="btn btn-primary">تواصل معي دابا</a>
+      <a href="#services" class="btn btn-outline" style="margin-right:12px;">شوف الخدمات</a>
     </div>
+    <div style="text-align:center;">
+      <!-- تقدر تحط صورة ديالك هنا -->
+      <div style="width:100%;height:300px;background:linear-gradient(135deg,#0f766e22,#0f766e44);border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:4rem;">💼</div>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <h2>الخدمات اللي كنقدم</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>🌐 تصميم موقع</h3>
+        <p>موقع تعريفي احترافي، متوافق مع الهاتف، وسريع.</p>
+        <div class="price">من 1500 درهم</div>
+        <a href="#contact" class="btn btn-primary" style="width:100%;text-align:center;">طلب الخدمة</a>
+      </div>
+      <div class="card">
+        <h3>🛒 متجر إلكتروني</h3>
+        <p>متجر كامل مع سلة، دفع، ولوحة تحكم سهلة.</p>
+        <div class="price">من 3000 درهم</div>
+        <a href="#contact" class="btn btn-primary" style="width:100%;text-align:center;">طلب الخدمة</a>
+      </div>
+      <div class="card">
+        <h3>🎨 هوية بصرية</h3>
+        <p>شعار، ألوان، وخطوط، ودليل استعمال العلامة.</p>
+        <div class="price">من 800 درهم</div>
+        <a href="#contact" class="btn btn-primary" style="width:100%;text-align:center;">طلب الخدمة</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="cta">
+    <h2>واش عندك مشروع؟</h2>
+    <p>تواصل معي دابا عبر واتساب، ونبداو الخدمة.</p>
+    <a href="https://wa.me/2126XXXXXXXX" class="btn" target="_blank">📱 واتساب</a>
+    <a href="https://paypal.me/username" class="btn" target="_blank" style="margin-right:12px;">💳 خلص عبر PayPal</a>
+  </section>
+
+  <footer>
+    © 2025 [سميتك]. جميع الحقوق محفوظة.
+  </footer>
+</div>
 </body>
 </html>
