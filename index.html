@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -21,7 +20,7 @@
   --radius:16px;
   --shadow:0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.01);
   --shadow-hover:0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.01);
-}حسن
+}
 *{box-sizing:border-box; margin:0; padding:0;}
 body{
   font-family: 'Cairo', sans-serif;
@@ -126,9 +125,7 @@ nav a:hover{color:var(--primary);}
 .card .btn{width:100%; text-align:center;}
 
 /* Ad / Teaser Section */
-.ad-section{
-  padding: 60px 0;
-}
+.ad-section{ padding: 60px 0; }
 .ad-banner{
   background: linear-gradient(135deg, var(--primary-dark), var(--primary));
   border-radius: 24px; padding: 50px; text-align: center; color: #fff;
@@ -143,7 +140,7 @@ nav a:hover{color:var(--primary);}
 .ad-banner .btn{background: #fff; color: var(--primary-dark); font-size: 1.1rem; padding: 16px 40px;}
 .ad-banner .btn:hover{background: #f8fafc; transform: scale(1.05);}
 
-/* Portfolio (صور جاذبة) */
+/* Portfolio */
 .portfolio{padding: 60px 0; background: #fff;}
 .portfolio h2{text-align: center; font-size: 2rem; margin-bottom: 40px; font-weight: 800;}
 .gallery{display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;}
@@ -153,6 +150,21 @@ nav a:hover{color:var(--primary);}
   color: var(--muted); font-weight: 700;
 }
 .gallery-item:hover{ transform: scale(1.02); transition: 0.3s; }
+
+/* Payment Methods Section */
+.payment-section{padding: 60px 0; background: #f8fafc;}
+.payment-section h2{text-align: center; font-size: 2rem; margin-bottom: 40px; font-weight: 800;}
+.payment-cards{display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;}
+.pay-card{
+  background: #fff; border-radius: var(--radius); padding: 30px 20px; text-align: center;
+  box-shadow: var(--shadow); border: 1px solid #f1f5f9; transition: all 0.3s ease;
+}
+.pay-card:hover{ transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+.pay-card h3{ margin: 15px 0 10px; font-size: 1.2rem; }
+.pay-card p{ color: var(--muted); font-size: 0.9rem; margin-bottom: 20px; }
+.pay-card .btn{ width: 100%; font-size: 0.95rem; padding: 12px 20px; }
+.pay-icon{ width: 50px; height: 50px; background: var(--primary-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; color: var(--primary); }
+.pay-icon svg{ width: 24px; height: 24px; }
 
 /* CTA Final */
 .cta{
@@ -195,13 +207,12 @@ footer{text-align:center; padding:40px 0; color:var(--muted); font-size:0.9rem; 
 <header>
   <div class="container header-inner">
     <div class="logo">
-      <!-- أيقونة اللوجو -->
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-      خدماتي
+      [سميتك] <!-- بدل هادي بالسمية ديالك -->
     </div>
     <nav>
       <a href="#services">الخدمات</a>
-      <a href="#portfolio">أعمالنا</a>
+      <a href="#payment">طرق الدفع</a>
       <a href="#contact">تواصل</a>
     </nav>
   </div>
@@ -222,7 +233,6 @@ footer{text-align:center; padding:40px 0; color:var(--muted); font-size:0.9rem; 
         <a href="#services" class="btn btn-outline">شوف الخدمات</a>
       </div>
     </div>
-    <!-- Visual Mockup instead of Emoji -->
     <div class="hero-visual">
       <div class="mockup-box">
         <div class="mockup-header">
@@ -231,7 +241,6 @@ footer{text-align:center; padding:40px 0; color:var(--muted); font-size:0.9rem; 
           <div class="mockup-dot"></div>
         </div>
         <div class="mockup-content">
-          <!-- أيقونة الموقع -->
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         </div>
       </div>
@@ -242,7 +251,6 @@ footer{text-align:center; padding:40px 0; color:var(--muted); font-size:0.9rem; 
   <section id="services" class="services">
     <h2>الخدمات اللي كنقدم</h2>
     <div class="cards">
-      <!-- Card 1 -->
       <div class="card">
         <div class="card-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -250,9 +258,8 @@ footer{text-align:center; padding:40px 0; color:var(--muted); font-size:0.9rem; 
         <h3>تصميم موقع</h3>
         <p>موقع تعريفي احترافي، متوافق مع الهاتف، وسريع.</p>
         <div class="price">من 1500 <span>درهم</span></div>
-        <a href="#contact" class="btn btn-primary">طلب الخدمة</a>
+        <a href="https://wa.me/[رقم الواتساب]?text=سلام،%20بغيت%20نطلب%20خدمة%20تصميم%20موقع" class="btn btn-primary" target="_blank">طلب الخدمة</a>
       </div>
-      <!-- Card 2 -->
       <div class="card">
         <div class="card-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
@@ -260,9 +267,8 @@ footer{text-align:center; padding:40px 0; color:var(--muted); font-size:0.9rem; 
         <h3>متجر إلكتروني</h3>
         <p>متجر كامل مع سلة، دفع، ولوحة تحكم سهلة.</p>
         <div class="price">من 3000 <span>درهم</span></div>
-        <a href="#contact" class="btn btn-primary">طلب الخدمة</a>
+        <a href="https://wa.me/[رقم الواتساب]?text=سلام،%20بغيت%20نطلب%20خدمة%20متجر%20إلكتروني" class="btn btn-primary" target="_blank">طلب الخدمة</a>
       </div>
-      <!-- Card 3 -->
       <div class="card">
         <div class="card-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/></svg>
@@ -270,21 +276,21 @@ footer{text-align:center; padding:40px 0; color:var(--muted); font-size:0.9rem; 
         <h3>هوية بصرية</h3>
         <p>شعار، ألوان، وخطوط، ودليل استعمال العلامة.</p>
         <div class="price">من 800 <span>درهم</span></div>
-        <a href="#contact" class="btn btn-primary">طلب الخدمة</a>
+        <a href="https://wa.me/[رقم الواتساب]?text=سلام،%20بغيت%20نطلب%20خدمة%20هوية%20بصرية" class="btn btn-primary" target="_blank">طلب الخدمة</a>
       </div>
     </div>
   </section>
 
-  <!-- Ad / Teaser Section (الإشهار) -->
+  <!-- Ad / Teaser Section -->
   <section class="ad-section">
     <div class="ad-banner">
       <h2>🚀 عرض خاص لفترة محدودة!</h2>
       <p>احصل على تصميم موقعك الأول بخصم 20% + استشارة مجانية لمدة 30 دقيقة.</p>
-      <a href="#contact" class="btn">اغتنم العرض دابا</a>
+      <a href="https://wa.me/[رقم الواتساب]?text=سلام،%20بغيت%20نستافد%20من%20العرض%20الخاص" class="btn">اغتنم العرض دابا</a>
     </div>
   </section>
 
-  <!-- Portfolio Section (صور جاذبة) -->
+  <!-- Portfolio Section -->
   <section id="portfolio" class="portfolio">
     <h2>أعمالنا السابقة</h2>
     <div class="gallery">
@@ -295,18 +301,52 @@ footer{text-align:center; padding:40px 0; color:var(--muted); font-size:0.9rem; 
     </div>
   </section>
 
+  <!-- Payment Methods Section (طرق الدفع) -->
+  <section id="payment" class="payment-section">
+    <h2>طرق الدفع المتوفرة</h2>
+    <div class="payment-cards">
+      <!-- Wafacash / Cash Plus -->
+      <div class="pay-card">
+        <div class="pay-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <h3>Wafacash / Cash Plus</h3>
+        <p>الدفع عبر وكالات Wafacash أو Cash Plus. تواصل معي باش نعطيك المعلومات.</p>
+        <a href="https://wa.me/[رقم الواتساب]?text=سلام،%20بغيت%20نخلص%20عبر%20Wafacash%20ولا%20Cash%20Plus" class="btn btn-outline" target="_blank">اطلب معلومات الدفع</a>
+      </div>
+      <!-- PayPal -->
+      <div class="pay-card">
+        <div class="pay-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516h3.326c.524 0 .968-.382 1.05-.9l.804-5.09a.563.563 0 0 1 .556-.479h1.735c4.358 0 7.748-1.766 8.748-6.897.372-1.91.104-3.498-.754-4.57z"/></svg>
+        </div>
+        <h3>PayPal</h3>
+        <p>الدفع الدولي عبر PayPal. مناسب للزبناء من خارج المغرب.</p>
+        <a href="https://paypal.me/[إيميلك في PayPal]" class="btn btn-outline" target="_blank">خلص عبر PayPal</a>
+      </div>
+      <!-- Bank Transfer -->
+      <div class="pay-card">
+        <div class="pay-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3>تحويل بنكي</h3>
+        <p>الدفع عبر التحويل البنكي (RIB). تواصل معي للحصول على التفاصيل.</p>
+        <a href="https://wa.me/[رقم الواتساب]?text=سلام،%20بغيت%20نخلص%20عبر%20التحويل%20البنكي" class="btn btn-outline" target="_blank">اطلب RIB</a>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA Section -->
   <section id="contact" class="cta">
     <h2>واش عندك مشروع؟</h2>
     <p>تواصل معي دابا عبر واتساب، ونبداو الخدمة فوراً.</p>
     <div class="cta-buttons">
-      <a href="https://wa.me/2126XXXXXXXX" class="btn btn-wa" target="_blank">
+      <a href="https://wa.me/[رقم الواتساب]?text=سلام،%20عندي%20مشروع%20وبغيت%20نتواصل%20معك" class="btn btn-wa" target="_blank">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
         واتساب
       </a>
-      <a href="https://paypal.me/username" class="btn" target="_blank">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516h3.326c.524 0 .968-.382 1.05-.9l.804-5.09a.563.563 0 0 1 .556-.479h1.735c4.358 0 7.748-1.766 8.748-6.897.372-1.91.104-3.498-.754-4.57z"/></svg>
-        خلص عبر PayPal
+      <a href="mailto:[إيميلك]@gmail.com" class="btn" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        أرسل إيميل
       </a>
     </div>
   </section>
@@ -317,7 +357,7 @@ footer{text-align:center; padding:40px 0; color:var(--muted); font-size:0.9rem; 
 </div>
 
 <!-- زر واتساب عائم -->
-<a href="https://wa.me/2126XXXXXXXX" class="float-wa" target="_blank" aria-label="تواصل عبر واتساب">
+<a href="https://wa.me/[رقم الواتساب]?text=سلام،%20بغيت%20نتواصل%20معك" class="float-wa" target="_blank" aria-label="تواصل عبر واتساب">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
 
