@@ -1,199 +1,133 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>سياسة الخصوصية - عالم الألعاب</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>Arctic Coins ❄️</title>
 <style>
-:root{
-  --primary:#8b5cf6;
-  --accent:#06b6d4;
-  --bg:#0f0f1e;
-  --card:#1c1c35;
-  --text:#e2e8f0;
-  --muted:#94a3b8;
-  --border:#2d2d4d;
-}
-*{box-sizing:border-box; margin:0; padding:0;}
-body{
-  font-family:'Cairo', sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:2;
-  padding: 20px;
-}
-.container{
-  max-width: 900px;
-  margin: 40px auto;
-  background: var(--card);
-  padding: 50px 40px;
-  border-radius: 20px;
-  border: 1px solid var(--border);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-}
-h1{
-  font-size: 2.2rem;
-  font-weight: 800;
-  margin-bottom: 10px;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-h2{
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--accent);
-  margin: 35px 0 15px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--border);
-}
-h3{
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #fff;
-  margin: 20px 0 10px;
-}
-p, li{
-  color: var(--muted);
-  font-size: 0.95rem;
-  margin-bottom: 10px;
-}
-ul{
-  padding-right: 25px;
-  margin-bottom: 15px;
-}
-a{
-  color: var(--primary);
-  text-decoration: none;
-}
-a:hover{
-  text-decoration: underline;
-}
-.update-date{
-  color: var(--muted);
-  font-size: 0.85rem;
-  margin-bottom: 30px;
-  display: block;
-}
-.back-btn{
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 40px;
-  padding: 12px 28px;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  color: #fff;
-  border-radius: 50px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: 0.3s;
-}
-.back-btn:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 0 25px rgba(139,92,246,0.5);
-  text-decoration: none;
-}
-@media(max-width:600px){
-  .container{ padding: 30px 20px; }
-  h1{ font-size: 1.6rem; }
-  h2{ font-size: 1.2rem; }
-}
+  body {
+    margin: 0;
+    background: linear-gradient(#87CEEB, #E0F6FF);
+    font-family: Arial, sans-serif;
+    text-align: center;
+    overflow: hidden;
+  }
+  #game {
+    position: relative;
+    width: 100vw;
+    height: 90vh;
+    overflow: hidden;
+  }
+  #player {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    background: #FFD700;
+    border-radius: 50%;
+    box-shadow: 0 0 20px #FFD700;
+    transition: left 0.1s;
+  }
+  .coin {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(#FFF700, #FFA500);
+    border-radius: 50%;
+    box-shadow: 0 0 15px #FFD700;
+  }
+  #score {
+    font-size: 24px;
+    padding: 10px;
+    color: #003366;
+    font-weight: bold;
+  }
+  #snow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: radial-gradient(white 2px, transparent 2px);
+    background-size: 50px 50px;
+    animation: snow 10s linear infinite;
+    opacity: 0.6;
+  }
+  @keyframes snow {
+    from { background-position: 0 0; }
+    to { background-position: 0 100vh; }
+  }
 </style>
 </head>
 <body>
+  <div id="score">النقاط: 0 ❄️</div>
+  <div id="game">
+    <div id="player"></div>
+  </div>
+  <div id="snow"></div>
 
-<div class="container">
+<script>
+  const game = document.getElementById('game');
+  const player = document.getElementById('player');
+  const scoreEl = document.getElementById('score');
+  let score = 0;
+  let playerX = window.innerWidth / 2;
 
-  <h1>سياسة الخصوصية</h1>
-  <span class="update-date">آخر تحديث: 20 سبتمبر 2026</span>
+  // تحريك اللاعب بالفأرة
+  document.addEventListener('mousemove', (e) => {
+    playerX = e.clientX - 25;
+    player.style.left = playerX + 'px';
+  });
 
-  <p>مرحباً بك في <strong>عالم الألعاب</strong>. نحن نأخذ خصوصيتك على محمل الجد. توضح سياسة الخصوصية هذه كيف نقوم بجمع واستخدام وحماية معلوماتك عند زيارتك لموقعنا.</p>
+  // تحريك اللاعب باللمس (للهاتف)
+  document.addEventListener('touchmove', (e) => {
+    playerX = e.touches[0].clientX - 25;
+    player.style.left = playerX + 'px';
+  });
 
-  <h2>1. المعلومات التي نجمعها</h2>
-  <p>قد نقوم بجمع نوعين من المعلومات:</p>
-  <ul>
-    <li><strong>معلومات غير شخصية:</strong> مثل نوع المتصفح، نظام التشغيل، الصفحات التي تزورها، والوقت الذي تقضيه في الموقع. هذه المعلومات لا تحدد هويتك شخصياً.</li>
-    <li><strong>معلومات شخصية:</strong> مثل الاسم أو البريد الإلكتروني، ولكن فقط إذا قمت بتقديمها طواعية (على سبيل المثال، عند الاتصال بنا).</li>
-  </ul>
+  // إنشاء عملة جديدة
+  function spawnCoin() {
+    const coin = document.createElement('div');
+    coin.classList.add('coin');
+    coin.style.left = Math.random() * (window.innerWidth - 30) + 'px';
+    coin.style.top = '-30px';
+    game.appendChild(coin);
 
-  <h2>2. ملفات تعريف الارتباط (Cookies) والإعلانات</h2>
-  <p>نحن نستخدم ملفات تعريف الارتباط لتحسين تجربتك وتقديم محتوى وإعلانات مناسبة. نستخدم بشكل أساسي خدمة <strong>Google AdSense</strong> لعرض الإعلانات.</p>
-  <ul>
-    <li>تستخدم Google ملفات تعريف الارتباط لعرض إعلانات مبنية على زياراتك السابقة لموقعنا ولمواقع أخرى على الإنترنت.</li>
-    <li>يمكنك إلغاء الاشتراك في الإعلانات المخصصة من خلال زيارة <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">إعدادات إعلانات Google</a>.</li>
-    <li>يمكنك أيضاً إلغاء الاشتراك في استخدام ملفات تعريف الارتباط من طرف طرف ثالث لبعض المعلنين من خلال زيارة <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener">www.aboutads.info</a>.</li>
-  </ul>
+    let y = -30;
+    const speed = 2 + Math.random() * 3;
+    const coinX = parseFloat(coin.style.left);
 
-  <h2>3. ألعاب Poki المدمجة (Poki Embedded Games)</h2>
-  <p>يحتوي موقعنا على ألعاب مقدمة من منصة <strong>Poki</strong>، والتي يتم عرضها عبر إطار مدمج (iframe). عند لعب هذه الألعاب، قد تقوم Poki بجمع بيانات معينة وفقاً لسياسة الخصوصية الخاصة بها.</p>
+    const fall = setInterval(() => {
+      y += speed;
+      coin.style.top = y + 'px';
 
-  <h3>ما هي البيانات التي قد تجمعها Poki؟</h3>
-  <ul>
-    <li><strong>معلومات اللعبة:</strong> مثل النقاط، الإنجازات، والتفاعلات داخل اللعبة.</li>
-    <li><strong>معلومات الجهاز والمتصفح:</strong> مثل نوع الجهاز، نظام التشغيل، والمتصفح المستخدم.</li>
-    <li><strong>ملفات تعريف الارتباط (Cookies):</strong> تستخدم Poki ملفات تعريف الارتباط الخاصة بها لتشغيل الألعاب وتحسين تجربتك وعرض إعلانات مناسبة. <strong>ملاحظة:</strong> Poki تحظر جميع الطلبات الخارجية افتراضياً لضمان الخصوصية[reference:0].</li>
-  </ul>
+      // التحقق من التصادم
+      const playerRect = player.getBoundingClientRect();
+      const coinRect = coin.getBoundingClientRect();
 
-  <h3>سياسة Poki للخصوصية</h3>
-  <p>نحن لا نتحكم في البيانات التي تجمعها Poki. للحصول على معلومات كاملة، ننصحك بمراجعة:</p>
-  <ul>
-    <li><a href="https://poki.com/en/privacy" target="_blank" rel="noopener">سياسة الخصوصية الرسمية لـ Poki</a></li>
-    <li><a href="https://poki.com/en/terms" target="_blank" rel="noopener">شروط استخدام Poki</a></li>
-  </ul>
+      if (
+        coinRect.bottom > playerRect.top &&
+        coinRect.top < playerRect.bottom &&
+        coinRect.right > playerRect.left &&
+        coinRect.left < playerRect.right
+      ) {
+        score++;
+        scoreEl.textContent = 'النقاط: ' + score + ' ❄️';
+        coin.remove();
+        clearInterval(fall);
+      }
 
-  <h3>ملاحظة مهمة لمطوري Poki</h3>
-  <p>إذا كنت مطوراً وتقدم ألعاباً إلى Poki، فإن استخدام PokiSDK يتطلب الالتزام بمعاييرهم. Poki تشترط أن تكون الألعاب متوافقة مع مانع الإعلانات، وأن يتم التعامل مع الإعلانات حصرياً عبر SDK الخاص بهم[reference:1]. كما أن اتفاقيتهم الافتراضية تتضمن <strong>الحصرية على الويب لمدة 5 سنوات</strong>[reference:2].</p>
+      // حذف العملة إذا سقطت
+      if (y > window.innerHeight) {
+        coin.remove();
+        clearInterval(fall);
+      }
+    }, 20);
+  }
 
-  <h2>4. كيف نستخدم معلوماتك</h2>
-  <p>نستخدم المعلومات التي نجمعها للأغراض التالية:</p>
-  <ul>
-    <li>تشغيل الموقع وضمان عمل الألعاب بشكل صحيح.</li>
-    <li>تحسين تجربة المستخدم وتطوير المحتوى.</li>
-    <li>عرض إعلانات مناسبة وذات صلة.</li>
-    <li>الرد على استفساراتك وطلباتك.</li>
-  </ul>
-
-  <h2>5. مشاركة المعلومات مع أطراف ثالثة</h2>
-  <p>نحن لا نبيع معلوماتك الشخصية. قد نشارك معلومات غير شخصية مع:</p>
-  <ul>
-    <li><strong>Google AdSense:</strong> لعرض الإعلانات.</li>
-    <li><strong>Poki:</strong> لتشغيل الألعاب المدمجة.</li>
-    <li><strong>مقدمي خدمات التحليلات:</strong> لفهم كيفية استخدام الموقع.</li>
-  </ul>
-
-  <h2>6. حقوقك (GDPR)</h2>
-  <p>إذا كنت مقيماً في الاتحاد الأوروبي، فإن لديك الحقوق التالية:</p>
-  <ul>
-    <li><strong>حق الوصول:</strong> طلب نسخة من البيانات التي نحتفظ بها عنك.</li>
-    <li><strong>حق التصحيح:</strong> تصحيح أي بيانات غير دقيقة.</li>
-    <li><strong>حق الحذف:</strong> طلب حذف بياناتك.</li>
-    <li><strong>حق الاعتراض:</strong> الاعتراض على معالجة بياناتك.</li>
-  </ul>
-  <p>لممارسة هذه الحقوق، يرجى الاتصال بنا.</p>
-
-  <h2>7. خصوصية الأطفال</h2>
-  <p>موقعنا غير موجه للأطفال دون سن 13 عاماً. لا نجمع عن قصد معلومات شخصية من الأطفال. إذا كنت ولي أمر وتعتقد أن طفلك قدم لنا معلومات، يرجى الاتصال بنا وسنقوم بحذفها فوراً.</p>
-
-  <h2>8. أمان البيانات</h2>
-  <p>نتخذ إجراءات أمنية مناسبة لحماية معلوماتك من الوصول غير المصرح به أو التغيير أو الإفشاء أو الإتلاف.</p>
-
-  <h2>9. التغييرات في سياسة الخصوصية</h2>
-  <p>قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. سنقوم بنشر أي تغييرات على هذه الصفحة مع تحديث تاريخ "آخر تحديث".</p>
-
-  <h2>10. اتصل بنا</h2>
-  <p>إذا كان لديك أي أسئلة حول سياسة الخصوصية هذه، يمكنك الاتصال بنا عبر:</p>
-  <ul>
-    <li>البريد الإلكتروني: <a href="mailto:your-email@gmail.com">your-email@gmail.com</a></li>
-    <li>أو من خلال صفحة <a href="index.html#contact">اتصل بنا</a>.</li>
-  </ul>
-
-  <a href="index.html" class="back-btn">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-    العودة إلى الموقع
-  </a>
-
-</div>
-
+  // إنشاء عملة كل 800 ملي ثانية
+  setInterval(spawnCoin, 800);
+</script>
 </body>
 </html>
