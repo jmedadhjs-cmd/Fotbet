@@ -4,133 +4,322 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>خدماتي - ربح المال</title>
+<title>خدماتي - تصميم مواقع ومتاجر إلكترونية</title>
+<!-- خط Cairo الاحترافي -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --primary:#0f766e;
   --primary-dark:#115e59;
+  --primary-light:#ccfbf1;
   --bg:#f8fafc;
   --card:#ffffff;
   --text:#1e293b;
   --muted:#64748b;
   --radius:16px;
+  --shadow:0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.01);
+  --shadow-hover:0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.01);
 }
-*{box-sizing:border-box}
+*{box-sizing:border-box; margin:0; padding:0;}
 body{
-  margin:0;
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans Arabic', sans-serif;
+  font-family: 'Cairo', sans-serif;
   background:var(--bg);
   color:var(--text);
-  line-height:1.7;
+  line-height:1.8;
+  scroll-behavior: smooth;
 }
-.container{max-width:1100px;margin:0 auto;padding:20px}
+.container{max-width:1140px; margin:0 auto; padding:0 20px;}
+
+/* Header Sticky */
 header{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(248, 250, 252, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  padding: 15px 0;
 }
-.logo{font-size:1.6rem;font-weight:800;color:var(--primary)}
+.header-inner{
+  display:flex; justify-content:space-between; align-items:center;
+}
+.logo{font-size:1.5rem; font-weight:800; color:var(--primary); display:flex; align-items:center; gap:8px;}
+.logo svg{width:28px; height:28px;}
 nav a{
-  color:var(--muted);text-decoration:none;margin-right:20px;font-weight:500;
+  color:var(--muted); text-decoration:none; margin-right:24px; font-weight:600; font-size:0.95rem; transition:0.2s;
 }
-nav a:hover{color:var(--primary)}
+nav a:hover{color:var(--primary);}
+
+/* Hero Section */
 .hero{
-  display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
-  padding:60px 0;
+  display:grid; grid-template-columns:1.1fr 0.9fr; gap:50px; align-items:center;
+  padding:80px 0;
 }
-.hero h1{font-size:2.8rem;line-height:1.2;margin:0 0 16px;}
-.hero p{font-size:1.15rem;color:var(--muted);margin:0 0 24px;}
+.hero-badge{
+  display:inline-flex; align-items:center; gap:6px; background:var(--primary-light); color:var(--primary-dark);
+  padding:6px 14px; border-radius:50px; font-size:0.85rem; font-weight:700; margin-bottom:20px;
+}
+.hero h1{font-size:2.8rem; line-height:1.3; margin:0 0 20px; font-weight:800;}
+.hero h1 span{color:var(--primary);}
+.hero p{font-size:1.15rem; color:var(--muted); margin:0 0 30px; max-width: 500px;}
 .btn{
-  display:inline-block;padding:14px 28px;border-radius:50px;font-weight:700;
-  text-decoration:none;transition:0.2s;border:none;cursor:pointer;font-size:1rem;
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  padding:14px 28px; border-radius:50px; font-weight:700; text-decoration:none; transition:all 0.3s ease;
+  border:none; cursor:pointer; font-size:1rem; font-family: inherit;
 }
-.btn-primary{background:var(--primary);color:#fff;}
-.btn-primary:hover{background:var(--primary-dark);}
-.btn-outline{background:transparent;color:var(--primary);border:2px solid var(--primary);}
-.btn-outline:hover{background:var(--primary);color:#fff;}
-.services{padding:60px 0;}
-.services h2{text-align:center;font-size:2rem;margin-bottom:40px;}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
+.btn-primary{background:var(--primary); color:#fff; box-shadow: 0 4px 14px rgba(15, 118, 110, 0.3);}
+.btn-primary:hover{background:var(--primary-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(15, 118, 110, 0.4);}
+.btn-outline{background:transparent; color:var(--primary); border:2px solid var(--primary);}
+.btn-outline:hover{background:var(--primary); color:#fff;}
+
+/* Mockup Graphic instead of Emoji */
+.hero-visual{
+  position: relative;
+  height: 380px;
+  background: linear-gradient(135deg, var(--primary-light), #e2e8f0);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.hero-visual::before{
+  content: ''; position: absolute; width: 150%; height: 150%;
+  background: radial-gradient(circle, rgba(15,118,110,0.1) 0%, transparent 60%);
+  top: -25%; left: -25%;
+}
+.mockup-box{
+  background: #fff; width: 75%; height: 60%; border-radius: 12px; box-shadow: var(--shadow);
+  display: flex; flex-direction: column; overflow: hidden; position: relative; z-index: 2;
+}
+.mockup-header{
+  height: 20px; background: #f1f5f9; display: flex; align-items: center; padding: 0 10px; gap: 6px;
+}
+.mockup-dot{width: 8px; height: 8px; border-radius: 50%; background: #cbd5e1;}
+.mockup-dot:nth-child(1){background: #ef4444;}
+.mockup-dot:nth-child(2){background: #f59e0b;}
+.mockup-dot:nth-child(3){background: #10b981;}
+.mockup-content{flex: 1; display: flex; align-items: center; justify-content: center; background: #f8fafc;}
+.mockup-content svg{width: 80px; height: 80px; color: var(--primary); opacity: 0.5;}
+
+/* Services */
+.services{padding:80px 0; background: #fff;}
+.services h2{text-align:center; font-size:2.2rem; margin-bottom:50px; font-weight:800;}
+.cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px;}
 .card{
-  background:var(--card);border-radius:var(--radius);padding:30px;
-  box-shadow:0 4px 20px rgba(0,0,0,0.05);border:1px solid #e2e8f0;
-  transition:transform 0.2s;
+  background:var(--card); border-radius:var(--radius); padding:35px 30px;
+  box-shadow:var(--shadow); border:1px solid #f1f5f9; transition:all 0.3s ease;
+  display: flex; flex-direction: column;
 }
-.card:hover{transform:translateY(-5px);}
-.card h3{margin:0 0 12px;font-size:1.4rem;}
-.card p{color:var(--muted);margin:0 0 20px;}
-.price{font-size:1.8rem;font-weight:800;color:var(--primary);margin-bottom:20px;}
+.card:hover{transform:translateY(-8px); box-shadow:var(--shadow-hover); border-color: var(--primary-light);}
+.card-icon{
+  width: 50px; height: 50px; background: var(--primary-light); border-radius: 12px;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 20px; color: var(--primary);
+}
+.card-icon svg{width: 26px; height: 26px;}
+.card h3{margin:0 0 12px; font-size:1.3rem; font-weight:700;}
+.card p{color:var(--muted); margin:0 0 20px; font-size: 0.95rem; flex-grow: 1;}
+.price{font-size:1.6rem; font-weight:800; color:var(--primary); margin-bottom:20px;}
+.price span{font-size: 0.9rem; font-weight: 400; color: var(--muted);}
+.card .btn{width:100%; text-align:center;}
+
+/* Ad / Teaser Section */
+.ad-section{
+  padding: 60px 0;
+}
+.ad-banner{
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+  border-radius: 24px; padding: 50px; text-align: center; color: #fff;
+  position: relative; overflow: hidden; box-shadow: 0 20px 40px rgba(15, 118, 110, 0.2);
+}
+.ad-banner::after{
+  content: ''; position: absolute; top: -50%; right: -20%; width: 60%; height: 200%;
+  background: rgba(255,255,255,0.05); transform: rotate(30deg); pointer-events: none;
+}
+.ad-banner h2{font-size: 2rem; margin-bottom: 10px; font-weight: 800;}
+.ad-banner p{font-size: 1.1rem; opacity: 0.9; margin-bottom: 25px;}
+.ad-banner .btn{background: #fff; color: var(--primary-dark); font-size: 1.1rem; padding: 16px 40px;}
+.ad-banner .btn:hover{background: #f8fafc; transform: scale(1.05);}
+
+/* Portfolio (صور جاذبة) */
+.portfolio{padding: 60px 0; background: #fff;}
+.portfolio h2{text-align: center; font-size: 2rem; margin-bottom: 40px; font-weight: 800;}
+.gallery{display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;}
+.gallery-item{
+  height: 200px; border-radius: 16px; overflow: hidden; position: relative;
+  background: linear-gradient(45deg, #e2e8f0, #cbd5e1); display: flex; align-items: center; justify-content: center;
+  color: var(--muted); font-weight: 700;
+}
+.gallery-item:hover{ transform: scale(1.02); transition: 0.3s; }
+
+/* CTA Final */
 .cta{
-  text-align:center;padding:60px 20px;background:var(--primary);color:#fff;border-radius:var(--radius);margin:40px 0;
+  text-align:center; padding:80px 20px; background:var(--primary); color:#fff; border-radius:24px; margin:60px 0;
+  box-shadow: 0 20px 40px rgba(15, 118, 110, 0.2);
 }
-.cta h2{margin:0 0 16px;font-size:2rem;}
-.cta p{margin:0 0 24px;opacity:0.9;}
-.cta .btn{background:#fff;color:var(--primary);}
-.cta .btn:hover{background:#f1f5f9;}
-footer{text-align:center;padding:40px 0;color:var(--muted);font-size:0.9rem;}
+.cta h2{margin:0 0 16px; font-size:2.2rem; font-weight: 800;}
+.cta p{margin:0 0 30px; opacity:0.9; font-size: 1.1rem;}
+.cta-buttons{display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;}
+.cta .btn{background:#fff; color:var(--primary); font-size: 1.05rem; padding: 16px 32px;}
+.cta .btn:hover{background:#f1f5f9; transform: translateY(-2px);}
+.cta .btn-wa{background:#25D366; color:#fff;}
+.cta .btn-wa:hover{background:#128C7E;}
+
+/* Floating WhatsApp Button */
+.float-wa{
+  position: fixed; bottom: 30px; left: 30px; background: #25D366; color: #fff;
+  width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 1000; transition: 0.3s;
+}
+.float-wa:hover{ transform: scale(1.1); background: #128C7E; }
+.float-wa svg{ width: 32px; height: 32px; }
+
+footer{text-align:center; padding:40px 0; color:var(--muted); font-size:0.9rem; border-top: 1px solid #e2e8f0;}
+
 @media(max-width:768px){
-  .hero{grid-template-columns:1fr;text-align:center;}
-  .hero h1{font-size:2rem;}
+  .hero{grid-template-columns:1fr; text-align:center; padding: 40px 0;}
+  .hero p{margin: 0 auto 30px;}
+  .hero h1{font-size:2.2rem;}
   nav{display:none;}
+  .hero-visual{ height: 250px; order: -1; }
+  .ad-banner{padding: 30px 20px;}
+  .ad-banner h2{font-size: 1.6rem;}
 }
 </style>
 </head>
 <body>
-<div class="container">
-  <header>
-    <div class="logo">خدماتي</div>
+
+<!-- Header -->
+<header>
+  <div class="container header-inner">
+    <div class="logo">
+      <!-- أيقونة اللوجو -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      خدماتي
+    </div>
     <nav>
       <a href="#services">الخدمات</a>
+      <a href="#portfolio">أعمالنا</a>
       <a href="#contact">تواصل</a>
     </nav>
-  </header>
+  </div>
+</header>
 
+<div class="container">
+  <!-- Hero Section -->
   <section class="hero">
     <div>
-      <h1>أنا <span style="color:var(--primary)">[سميتك]</span>، كنعاون الشركات والأفراد يطورو حضورهم الرقمي</h1>
+      <div class="hero-badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        خدمة 5 نجوم
+      </div>
+      <h1>أنا <span>[سميتك]</span>، كنعاون الشركات والأفراد يطورو حضورهم الرقمي</h1>
       <p>تصميم مواقع، متاجر إلكترونية، وهوية بصرية. خدمة سريعة وجودة عالية بثمن مناسب.</p>
-      <a href="#contact" class="btn btn-primary">تواصل معي دابا</a>
-      <a href="#services" class="btn btn-outline" style="margin-right:12px;">شوف الخدمات</a>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <a href="#contact" class="btn btn-primary">تواصل معي دابا</a>
+        <a href="#services" class="btn btn-outline">شوف الخدمات</a>
+      </div>
     </div>
-    <div style="text-align:center;">
-      <!-- تقدر تحط صورة ديالك هنا -->
-      <div style="width:100%;height:300px;background:linear-gradient(135deg,#0f766e22,#0f766e44);border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:4rem;">💼</div>
+    <!-- Visual Mockup instead of Emoji -->
+    <div class="hero-visual">
+      <div class="mockup-box">
+        <div class="mockup-header">
+          <div class="mockup-dot"></div>
+          <div class="mockup-dot"></div>
+          <div class="mockup-dot"></div>
+        </div>
+        <div class="mockup-content">
+          <!-- أيقونة الموقع -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- Services Section -->
   <section id="services" class="services">
     <h2>الخدمات اللي كنقدم</h2>
     <div class="cards">
+      <!-- Card 1 -->
       <div class="card">
-        <h3>🌐 تصميم موقع</h3>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3>تصميم موقع</h3>
         <p>موقع تعريفي احترافي، متوافق مع الهاتف، وسريع.</p>
-        <div class="price">من 1500 درهم</div>
-        <a href="#contact" class="btn btn-primary" style="width:100%;text-align:center;">طلب الخدمة</a>
+        <div class="price">من 1500 <span>درهم</span></div>
+        <a href="#contact" class="btn btn-primary">طلب الخدمة</a>
       </div>
+      <!-- Card 2 -->
       <div class="card">
-        <h3>🛒 متجر إلكتروني</h3>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        </div>
+        <h3>متجر إلكتروني</h3>
         <p>متجر كامل مع سلة، دفع، ولوحة تحكم سهلة.</p>
-        <div class="price">من 3000 درهم</div>
-        <a href="#contact" class="btn btn-primary" style="width:100%;text-align:center;">طلب الخدمة</a>
+        <div class="price">من 3000 <span>درهم</span></div>
+        <a href="#contact" class="btn btn-primary">طلب الخدمة</a>
       </div>
+      <!-- Card 3 -->
       <div class="card">
-        <h3>🎨 هوية بصرية</h3>
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/></svg>
+        </div>
+        <h3>هوية بصرية</h3>
         <p>شعار، ألوان، وخطوط، ودليل استعمال العلامة.</p>
-        <div class="price">من 800 درهم</div>
-        <a href="#contact" class="btn btn-primary" style="width:100%;text-align:center;">طلب الخدمة</a>
+        <div class="price">من 800 <span>درهم</span></div>
+        <a href="#contact" class="btn btn-primary">طلب الخدمة</a>
       </div>
     </div>
   </section>
 
+  <!-- Ad / Teaser Section (الإشهار) -->
+  <section class="ad-section">
+    <div class="ad-banner">
+      <h2>🚀 عرض خاص لفترة محدودة!</h2>
+      <p>احصل على تصميم موقعك الأول بخصم 20% + استشارة مجانية لمدة 30 دقيقة.</p>
+      <a href="#contact" class="btn">اغتنم العرض دابا</a>
+    </div>
+  </section>
+
+  <!-- Portfolio Section (صور جاذبة) -->
+  <section id="portfolio" class="portfolio">
+    <h2>أعمالنا السابقة</h2>
+    <div class="gallery">
+      <div class="gallery-item">مشروع رقم 1</div>
+      <div class="gallery-item">مشروع رقم 2</div>
+      <div class="gallery-item">مشروع رقم 3</div>
+      <div class="gallery-item">مشروع رقم 4</div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
   <section id="contact" class="cta">
     <h2>واش عندك مشروع؟</h2>
-    <p>تواصل معي دابا عبر واتساب، ونبداو الخدمة.</p>
-    <a href="https://wa.me/2126XXXXXXXX" class="btn" target="_blank">📱 واتساب</a>
-    <a href="https://paypal.me/username" class="btn" target="_blank" style="margin-right:12px;">💳 خلص عبر PayPal</a>
+    <p>تواصل معي دابا عبر واتساب، ونبداو الخدمة فوراً.</p>
+    <div class="cta-buttons">
+      <a href="https://wa.me/2126XXXXXXXX" class="btn btn-wa" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        واتساب
+      </a>
+      <a href="https://paypal.me/username" class="btn" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.93 4.778-4.005 7.201-9.138 7.201h-2.19a.563.563 0 0 0-.556.479l-1.187 7.527h-.506l-.24 1.516h3.326c.524 0 .968-.382 1.05-.9l.804-5.09a.563.563 0 0 1 .556-.479h1.735c4.358 0 7.748-1.766 8.748-6.897.372-1.91.104-3.498-.754-4.57z"/></svg>
+        خلص عبر PayPal
+      </a>
+    </div>
   </section>
 
   <footer>
     © 2025 [سميتك]. جميع الحقوق محفوظة.
   </footer>
 </div>
+
+<!-- زر واتساب عائم -->
+<a href="https://wa.me/2126XXXXXXXX" class="float-wa" target="_blank" aria-label="تواصل عبر واتساب">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
 </body>
 </html>
