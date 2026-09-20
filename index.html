@@ -3,801 +3,197 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>عالم الألعاب - العب أفضل الألعاب المجانية</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<title>سياسة الخصوصية - عالم الألعاب</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
   --primary:#8b5cf6;
-  --primary-dark:#7c3aed;
   --accent:#06b6d4;
-  --accent-glow:#22d3ee;
   --bg:#0f0f1e;
-  --bg-2:#16162a;
   --card:#1c1c35;
-  --card-hover:#252547;
   --text:#e2e8f0;
   --muted:#94a3b8;
   --border:#2d2d4d;
-  --radius:16px;
-  --shadow:0 10px 30px -5px rgba(0,0,0,0.4);
-  --glow:0 0 20px rgba(139,92,246,0.4);
 }
 *{box-sizing:border-box; margin:0; padding:0;}
 body{
   font-family:'Cairo', sans-serif;
   background:var(--bg);
   color:var(--text);
-  line-height:1.8;
-  overflow-x:hidden;
+  line-height:2;
+  padding: 20px;
 }
-body::before{
-  content:''; position:fixed; top:0; left:0; width:100%; height:100%;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(139,92,246,0.15) 0%, transparent 40%),
-    radial-gradient(circle at 80% 80%, rgba(6,182,212,0.12) 0%, transparent 40%);
-  pointer-events:none; z-index:0;
+.container{
+  max-width: 900px;
+  margin: 40px auto;
+  background: var(--card);
+  padding: 50px 40px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
 }
-.container{max-width:1200px; margin:0 auto; padding:0 20px; position:relative; z-index:1;}
-
-/* Header */
-header{
-  position:sticky; top:0; z-index:100;
-  background:rgba(15,15,30,0.85);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--border);
-  padding:15px 0;
+h1{
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
-.header-inner{display:flex; justify-content:space-between; align-items:center;}
-.logo{
-  font-size:1.4rem; font-weight:900; color:#fff; display:flex; align-items:center; gap:10px;
-  background:linear-gradient(135deg, var(--primary), var(--accent));
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+h2{
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 35px 0 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
 }
-.logo svg{width:32px; height:32px; color:var(--primary); -webkit-text-fill-color:var(--primary);}
-nav a{
-  color:var(--muted); text-decoration:none; margin-right:24px; font-weight:600; font-size:0.95rem;
-  transition:0.2s; position:relative;
+h3{
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 20px 0 10px;
 }
-nav a:hover{color:var(--accent);}
-nav a::after{content:''; position:absolute; bottom:-5px; right:0; width:0; height:2px; background:var(--accent); transition:0.3s;}
-nav a:hover::after{width:100%;}
-
-/* Hero */
-.hero{padding:80px 0 60px; text-align:center;}
-.hero-badge{
-  display:inline-flex; align-items:center; gap:8px;
-  background:rgba(139,92,246,0.15); border:1px solid rgba(139,92,246,0.3);
-  color:var(--accent-glow); padding:8px 18px; border-radius:50px;
-  font-size:0.85rem; font-weight:700; margin-bottom:25px;
+p, li{
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 10px;
 }
-.hero h1{
-  font-size:3.2rem; line-height:1.3; font-weight:900; margin-bottom:20px; color:#fff;
+ul{
+  padding-right: 25px;
+  margin-bottom: 15px;
 }
-.hero h1 span{
-  background:linear-gradient(135deg, var(--primary), var(--accent));
-  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+a{
+  color: var(--primary);
+  text-decoration: none;
 }
-.hero p{font-size:1.15rem; color:var(--muted); max-width:600px; margin:0 auto 35px;}
-.search-box{
-  max-width:500px; margin:0 auto; position:relative;
+a:hover{
+  text-decoration: underline;
 }
-.search-box input{
-  width:100%; padding:16px 50px 16px 20px; border-radius:50px;
-  background:var(--card); border:1px solid var(--border); color:var(--text);
-  font-family:inherit; font-size:1rem; outline:none; transition:0.3s;
+.update-date{
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 30px;
+  display: block;
 }
-.search-box input:focus{border-color:var(--primary); box-shadow:var(--glow);}
-.search-box svg{position:absolute; right:20px; top:50%; transform:translateY(-50%); color:var(--muted); width:20px; height:20px;}
-
-/* Stats */
-.stats{display:flex; justify-content:center; gap:50px; margin-top:50px; flex-wrap:wrap;}
-.stat{text-align:center;}
-.stat-num{font-size:2rem; font-weight:900; color:var(--accent-glow);}
-.stat-label{color:var(--muted); font-size:0.9rem;}
-
-/* Categories */
-.categories{padding:40px 0; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;}
-.cat-btn{
-  padding:10px 22px; border-radius:50px; border:1px solid var(--border);
-  background:var(--card); color:var(--muted); font-family:inherit; font-weight:700;
-  cursor:pointer; transition:0.3s; font-size:0.9rem;
+.back-btn{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  border-radius: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s;
 }
-.cat-btn:hover{border-color:var(--primary); color:#fff;}
-.cat-btn.active{
-  background:linear-gradient(135deg, var(--primary), var(--accent));
-  color:#fff; border-color:transparent; box-shadow:var(--glow);
+.back-btn:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(139,92,246,0.5);
+  text-decoration: none;
 }
-
-/* Section Title */
-.section-title{
-  text-align:center; font-size:2.2rem; font-weight:900; margin-bottom:15px; color:#fff;
-}
-.section-subtitle{text-align:center; color:var(--muted); margin-bottom:50px;}
-
-/* Games Grid */
-.games-grid{
-  display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
-  gap:25px; padding-bottom:60px;
-}
-.game-card{
-  background:var(--card); border-radius:var(--radius); overflow:hidden;
-  border:1px solid var(--border); transition:0.3s; cursor:pointer;
-  display:flex; flex-direction:column;
-}
-.game-card:hover{
-  transform:translateY(-8px); border-color:var(--primary);
-  box-shadow:0 20px 40px -10px rgba(139,92,246,0.3);
-}
-.game-thumb{
-  height:170px; position:relative; display:flex; align-items:center; justify-content:center;
-  font-size:4.5rem; overflow:hidden;
-}
-.game-thumb::after{
-  content:''; position:absolute; inset:0;
-  background:linear-gradient(to top, rgba(15,15,30,0.9) 0%, transparent 60%);
-}
-.thumb-snake{background:linear-gradient(135deg, #10b981, #065f46);}
-.thumb-memory{background:linear-gradient(135deg, #f59e0b, #b45309);}
-.thumb-xo{background:linear-gradient(135deg, #8b5cf6, #4c1d95);}
-.thumb-aim{background:linear-gradient(135deg, #ef4444, #991b1b);}
-.thumb-puzzle{background:linear-gradient(135deg, #06b6d4, #155e75);}
-.thumb-race{background:linear-gradient(135deg, #ec4899, #831843);}
-
-.game-info{padding:18px; display:flex; flex-direction:column; flex-grow:1;}
-.game-title{font-size:1.1rem; font-weight:800; margin-bottom:6px; color:#fff;}
-.game-desc{font-size:0.85rem; color:var(--muted); margin-bottom:15px; flex-grow:1;}
-.game-meta{display:flex; justify-content:space-between; align-items:center;}
-.game-tag{
-  background:rgba(139,92,246,0.15); color:var(--accent-glow);
-  font-size:0.75rem; font-weight:700; padding:4px 12px; border-radius:50px;
-}
-.game-plays{font-size:0.8rem; color:var(--muted);}
-
-/* Ad Banner */
-.ad-banner{
-  background:linear-gradient(135deg, var(--card), var(--bg-2));
-  border:1px dashed var(--border); border-radius:var(--radius);
-  padding:40px; text-align:center; margin:40px 0;
-}
-.ad-banner p{color:var(--muted); font-size:0.9rem; margin-bottom:5px;}
-.ad-banner strong{color:var(--accent-glow); font-size:1.3rem; font-weight:900;}
-
-/* Modal */
-.modal-overlay{
-  position:fixed; inset:0; background:rgba(0,0,0,0.85); backdrop-filter:blur(8px);
-  display:none; align-items:center; justify-content:center; z-index:1000; padding:20px;
-}
-.modal-overlay.active{display:flex;}
-.modal{
-  background:var(--bg-2); border:1px solid var(--border); border-radius:20px;
-  width:100%; max-width:800px; max-height:90vh; overflow-y:auto;
-  box-shadow:0 30px 60px rgba(0,0,0,0.6);
-}
-.modal-header{
-  display:flex; justify-content:space-between; align-items:center;
-  padding:20px 25px; border-bottom:1px solid var(--border);
-}
-.modal-header h3{font-size:1.3rem; font-weight:800; color:#fff;}
-.modal-close{
-  background:var(--card); border:1px solid var(--border); color:var(--muted);
-  width:36px; height:36px; border-radius:50%; cursor:pointer; font-size:1.3rem;
-  display:flex; align-items:center; justify-content:center; transition:0.2s;
-}
-.modal-close:hover{background:#ef4444; color:#fff; border-color:#ef4444;}
-.modal-body{padding:25px; text-align:center;}
-
-/* Game Canvas */
-#gameCanvas{
-  background:#000; border-radius:12px; max-width:100%; display:block; margin:0 auto;
-  border:2px solid var(--border);
-}
-.game-controls{margin-top:20px; display:flex; gap:15px; justify-content:center; align-items:center; flex-wrap:wrap;}
-.score-board{
-  display:flex; gap:30px; justify-content:center; margin-bottom:20px;
-  font-weight:800; font-size:1.1rem;
-}
-.score-board span{color:var(--accent-glow);}
-.btn{
-  display:inline-flex; align-items:center; justify-content:center; gap:8px;
-  padding:12px 26px; border-radius:50px; font-weight:700; text-decoration:none;
-  border:none; cursor:pointer; font-size:0.95rem; font-family:inherit; transition:0.3s;
-}
-.btn-primary{
-  background:linear-gradient(135deg, var(--primary), var(--accent)); color:#fff;
-  box-shadow:var(--glow);
-}
-.btn-primary:hover{transform:translateY(-2px); box-shadow:0 0 30px rgba(139,92,246,0.6);}
-.btn-outline{background:transparent; color:var(--text); border:2px solid var(--border);}
-.btn-outline:hover{border-color:var(--primary); color:var(--primary);}
-
-/* Memory Game */
-.memory-grid{
-  display:grid; grid-template-columns:repeat(4, 1fr); gap:12px;
-  max-width:420px; margin:0 auto;
-}
-.mem-card{
-  aspect-ratio:1; background:var(--card); border:2px solid var(--border); border-radius:12px;
-  display:flex; align-items:center; justify-content:center; font-size:2.5rem;
-  cursor:pointer; transition:0.3s; user-select:none;
-}
-.mem-card:hover{border-color:var(--primary);}
-.mem-card.flipped{background:linear-gradient(135deg, var(--primary), var(--accent)); border-color:transparent;}
-.mem-card.matched{background:#10b981; border-color:#10b981; opacity:0.7;}
-
-/* XO Game */
-.xo-grid{
-  display:grid; grid-template-columns:repeat(3, 100px); gap:8px; justify-content:center;
-  margin:0 auto;
-}
-.xo-cell{
-  width:100px; height:100px; background:var(--card); border:2px solid var(--border);
-  border-radius:12px; display:flex; align-items:center; justify-content:center;
-  font-size:3rem; font-weight:900; cursor:pointer; transition:0.2s; color:#fff;
-}
-.xo-cell:hover{border-color:var(--primary); background:var(--card-hover);}
-
-/* Aim Trainer */
-.aim-area{
-  position:relative; width:100%; max-width:500px; height:400px; margin:0 auto;
-  background:var(--bg); border:2px solid var(--border); border-radius:12px; overflow:hidden;
-}
-.aim-target{
-  position:absolute; width:60px; height:60px; border-radius:50%;
-  background:radial-gradient(circle, #ef4444 30%, #991b1b 100%);
-  cursor:crosshair; display:flex; align-items:center; justify-content:center;
-  font-weight:900; color:#fff; animation:pop 0.3s;
-  box-shadow:0 0 20px rgba(239,68,68,0.5);
-}
-@keyframes pop{from{transform:scale(0);} to{transform:scale(1);}}
-
-/* Footer */
-footer{
-  border-top:1px solid var(--border); padding:40px 0 30px; margin-top:60px;
-  text-align:center; color:var(--muted); font-size:0.9rem;
-}
-footer .footer-links{margin-bottom:20px;}
-footer .footer-links a{color:var(--muted); text-decoration:none; margin:0 12px; transition:0.2s;}
-footer .footer-links a:hover{color:var(--accent);}
-
-/* Empty State */
-.empty-state{text-align:center; padding:60px 20px; color:var(--muted); display:none;}
-.empty-state svg{width:60px; height:60px; margin-bottom:15px; opacity:0.5;}
-
-/* Responsive */
-@media(max-width:768px){
-  .hero h1{font-size:2rem;}
-  nav{display:none;}
-  .games-grid{grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:15px;}
-  .game-thumb{height:130px; font-size:3.5rem;}
-  .stats{gap:25px;}
-  .stat-num{font-size:1.5rem;}
-  .xo-grid{grid-template-columns:repeat(3, 80px);}
-  .xo-cell{width:80px; height:80px; font-size:2rem;}
-  .memory-grid{grid-template-columns:repeat(4, 1fr); gap:8px;}
-  .aim-area{height:300px;}
-  .section-title{font-size:1.7rem;}
+@media(max-width:600px){
+  .container{ padding: 30px 20px; }
+  h1{ font-size: 1.6rem; }
+  h2{ font-size: 1.2rem; }
 }
 </style>
 </head>
 <body>
 
-<!-- Header -->
-<header>
-  <div class="container header-inner">
-    <div class="logo">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/><line x1="15" y1="13" x2="15.01" y2="13"/><line x1="18" y1="11" x2="18.01" y2="11"/><path d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"/></svg>
-      عالم الألعاب
-    </div>
-    <nav>
-      <a href="#games">الألعاب</a>
-      <a href="#categories">التصنيفات</a>
-      <a href="#about">من نحن</a>
-    </nav>
-  </div>
-</header>
-
 <div class="container">
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-badge">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-      أكثر من 4 ألعاب مجانية
-    </div>
-    <h1>العب أحسن الألعاب <span>بلا تحميل</span></h1>
-    <p>مجموعة مختارة من الألعاب الممتعة كتخدم مباشرة فالمتصفح ديالك. بلا تسجيل، بلا تحميل، غير العب واستمتع.</p>
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="قلب على لعبة...">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-    </div>
-    <div class="stats">
-      <div class="stat"><div class="stat-num">4</div><div class="stat-label">ألعاب</div></div>
-      <div class="stat"><div class="stat-num">∞</div><div class="stat-label">ساعات المتعة</div></div>
-      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">مجاني</div></div>
-    </div>
-  </section>
+  <h1>سياسة الخصوصية</h1>
+  <span class="update-date">آخر تحديث: 20 سبتمبر 2026</span>
 
-  <!-- Ad Banner Top -->
-  <div class="ad-banner">
-    <p>مساحة إعلانية</p>
-    <strong>ضع كود الإعلان هنا (AdSense)</strong>
-  </div>
+  <p>مرحباً بك في <strong>عالم الألعاب</strong>. نحن نأخذ خصوصيتك على محمل الجد. توضح سياسة الخصوصية هذه كيف نقوم بجمع واستخدام وحماية معلوماتك عند زيارتك لموقعنا.</p>
 
-  <!-- Categories -->
-  <section id="categories">
-    <h2 class="section-title">تصنيفات الألعاب</h2>
-    <p class="section-subtitle">اختر التصنيف اللي كيعجبك وابدا اللعب</p>
-    <div class="categories">
-      <button class="cat-btn active" data-cat="all">الكل</button>
-      <button class="cat-btn" data-cat="action">أكشن</button>
-      <button class="cat-btn" data-cat="puzzle">ألغاز</button>
-      <button class="cat-btn" data-cat="brain">ذكاء</button>
-      <button class="cat-btn" data-cat="classic">كلاسيكية</button>
-    </div>
-  </section>
+  <h2>1. المعلومات التي نجمعها</h2>
+  <p>قد نقوم بجمع نوعين من المعلومات:</p>
+  <ul>
+    <li><strong>معلومات غير شخصية:</strong> مثل نوع المتصفح، نظام التشغيل، الصفحات التي تزورها، والوقت الذي تقضيه في الموقع. هذه المعلومات لا تحدد هويتك شخصياً.</li>
+    <li><strong>معلومات شخصية:</strong> مثل الاسم أو البريد الإلكتروني، ولكن فقط إذا قمت بتقديمها طواعية (على سبيل المثال، عند الاتصال بنا).</li>
+  </ul>
 
-  <!-- Games Grid -->
-  <section id="games">
-    <div class="games-grid" id="gamesGrid">
+  <h2>2. ملفات تعريف الارتباط (Cookies) والإعلانات</h2>
+  <p>نحن نستخدم ملفات تعريف الارتباط لتحسين تجربتك وتقديم محتوى وإعلانات مناسبة. نستخدم بشكل أساسي خدمة <strong>Google AdSense</strong> لعرض الإعلانات.</p>
+  <ul>
+    <li>تستخدم Google ملفات تعريف الارتباط لعرض إعلانات مبنية على زياراتك السابقة لموقعنا ولمواقع أخرى على الإنترنت.</li>
+    <li>يمكنك إلغاء الاشتراك في الإعلانات المخصصة من خلال زيارة <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">إعدادات إعلانات Google</a>.</li>
+    <li>يمكنك أيضاً إلغاء الاشتراك في استخدام ملفات تعريف الارتباط من طرف طرف ثالث لبعض المعلنين من خلال زيارة <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener">www.aboutads.info</a>.</li>
+  </ul>
 
-      <!-- Snake -->
-      <div class="game-card" data-cat="classic" data-game="snake">
-        <div class="game-thumb thumb-snake">🐍</div>
-        <div class="game-info">
-          <div class="game-title">لعبة الثعبان</div>
-          <div class="game-desc">كل الفواكه وزيد فالطول، ولكن حذر من الجدار ونفسك!</div>
-          <div class="game-meta">
-            <span class="game-tag">كلاسيكية</span>
-            <span class="game-plays">🎮 الأكثر لعباً</span>
-          </div>
-        </div>
-      </div>
+  <h2>3. ألعاب Poki المدمجة (Poki Embedded Games)</h2>
+  <p>يحتوي موقعنا على ألعاب مقدمة من منصة <strong>Poki</strong>، والتي يتم عرضها عبر إطار مدمج (iframe). عند لعب هذه الألعاب، قد تقوم Poki بجمع بيانات معينة وفقاً لسياسة الخصوصية الخاصة بها.</p>
 
-      <!-- Memory -->
-      <div class="game-card" data-cat="brain" data-game="memory">
-        <div class="game-thumb thumb-memory">🧠</div>
-        <div class="game-info">
-          <div class="game-title">لعبة الذاكرة</div>
-          <div class="game-desc">قلب الكروت ولقا الأزواج المتشابهة فاقل وقت ممكن.</div>
-          <div class="game-meta">
-            <span class="game-tag">ذكاء</span>
-            <span class="game-plays">🎯 تحدي</span>
-          </div>
-        </div>
-      </div>
+  <h3>ما هي البيانات التي قد تجمعها Poki؟</h3>
+  <ul>
+    <li><strong>معلومات اللعبة:</strong> مثل النقاط، الإنجازات، والتفاعلات داخل اللعبة.</li>
+    <li><strong>معلومات الجهاز والمتصفح:</strong> مثل نوع الجهاز، نظام التشغيل، والمتصفح المستخدم.</li>
+    <li><strong>ملفات تعريف الارتباط (Cookies):</strong> تستخدم Poki ملفات تعريف الارتباط الخاصة بها لتشغيل الألعاب وتحسين تجربتك وعرض إعلانات مناسبة. <strong>ملاحظة:</strong> Poki تحظر جميع الطلبات الخارجية افتراضياً لضمان الخصوصية[reference:0].</li>
+  </ul>
 
-      <!-- XO -->
-      <div class="game-card" data-cat="classic" data-game="xo">
-        <div class="game-thumb thumb-xo">❌⭕</div>
-        <div class="game-info">
-          <div class="game-title">إكس-أو</div>
-          <div class="game-desc">اللعبة الكلاسيكية ضد الكمبيوتر. واش تقدر تفوز؟</div>
-          <div class="game-meta">
-            <span class="game-tag">كلاسيكية</span>
-            <span class="game-plays">🧩 لعبة سريعة</span>
-          </div>
-        </div>
-      </div>
+  <h3>سياسة Poki للخصوصية</h3>
+  <p>نحن لا نتحكم في البيانات التي تجمعها Poki. للحصول على معلومات كاملة، ننصحك بمراجعة:</p>
+  <ul>
+    <li><a href="https://poki.com/en/privacy" target="_blank" rel="noopener">سياسة الخصوصية الرسمية لـ Poki</a></li>
+    <li><a href="https://poki.com/en/terms" target="_blank" rel="noopener">شروط استخدام Poki</a></li>
+  </ul>
 
-      <!-- Aim Trainer -->
-      <div class="game-card" data-cat="action" data-game="aim">
-        <div class="game-thumb thumb-aim">🎯</div>
-        <div class="game-info">
-          <div class="game-title">مدرب التصويب</div>
-          <div class="game-desc">اختبر سرعتك ودقتك فالتصويب. شحال تقدر تجيب فـ 30 ثانية؟</div>
-          <div class="game-meta">
-            <span class="game-tag">أكشن</span>
-            <span class="game-plays">⚡ سريعة</span>
-          </div>
-        </div>
-      </div>
+  <h3>ملاحظة مهمة لمطوري Poki</h3>
+  <p>إذا كنت مطوراً وتقدم ألعاباً إلى Poki، فإن استخدام PokiSDK يتطلب الالتزام بمعاييرهم. Poki تشترط أن تكون الألعاب متوافقة مع مانع الإعلانات، وأن يتم التعامل مع الإعلانات حصرياً عبر SDK الخاص بهم[reference:1]. كما أن اتفاقيتهم الافتراضية تتضمن <strong>الحصرية على الويب لمدة 5 سنوات</strong>[reference:2].</p>
 
-    </div>
-    <div class="empty-state" id="emptyState">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <p>ما لقيناش ألعاب بهاد الاسم. جرب كلمة أخرى.</p>
-    </div>
-  </section>
+  <h2>4. كيف نستخدم معلوماتك</h2>
+  <p>نستخدم المعلومات التي نجمعها للأغراض التالية:</p>
+  <ul>
+    <li>تشغيل الموقع وضمان عمل الألعاب بشكل صحيح.</li>
+    <li>تحسين تجربة المستخدم وتطوير المحتوى.</li>
+    <li>عرض إعلانات مناسبة وذات صلة.</li>
+    <li>الرد على استفساراتك وطلباتك.</li>
+  </ul>
 
-  <!-- Ad Banner Bottom -->
-  <div class="ad-banner">
-    <p>مساحة إعلانية</p>
-    <strong>ضع كود الإعلان هنا (AdSense)</strong>
-  </div>
+  <h2>5. مشاركة المعلومات مع أطراف ثالثة</h2>
+  <p>نحن لا نبيع معلوماتك الشخصية. قد نشارك معلومات غير شخصية مع:</p>
+  <ul>
+    <li><strong>Google AdSense:</strong> لعرض الإعلانات.</li>
+    <li><strong>Poki:</strong> لتشغيل الألعاب المدمجة.</li>
+    <li><strong>مقدمي خدمات التحليلات:</strong> لفهم كيفية استخدام الموقع.</li>
+  </ul>
 
-  <!-- Footer -->
-  <footer id="about">
-    <div class="footer-links">
-      <a href="#games">الألعاب</a>
-      <a href="#categories">التصنيفات</a>
-      <a href="#">سياسة الخصوصية</a>
-      <a href="#">اتصل بنا</a>
-    </div>
-    <p>© 2025 عالم الألعاب. جميع الحقوق محفوظة.</p>
-    <p style="margin-top:8px; font-size:0.8rem;">صُنع بـ ❤️ لعشاق الألعاب</p>
-  </footer>
+  <h2>6. حقوقك (GDPR)</h2>
+  <p>إذا كنت مقيماً في الاتحاد الأوروبي، فإن لديك الحقوق التالية:</p>
+  <ul>
+    <li><strong>حق الوصول:</strong> طلب نسخة من البيانات التي نحتفظ بها عنك.</li>
+    <li><strong>حق التصحيح:</strong> تصحيح أي بيانات غير دقيقة.</li>
+    <li><strong>حق الحذف:</strong> طلب حذف بياناتك.</li>
+    <li><strong>حق الاعتراض:</strong> الاعتراض على معالجة بياناتك.</li>
+  </ul>
+  <p>لممارسة هذه الحقوق، يرجى الاتصال بنا.</p>
+
+  <h2>7. خصوصية الأطفال</h2>
+  <p>موقعنا غير موجه للأطفال دون سن 13 عاماً. لا نجمع عن قصد معلومات شخصية من الأطفال. إذا كنت ولي أمر وتعتقد أن طفلك قدم لنا معلومات، يرجى الاتصال بنا وسنقوم بحذفها فوراً.</p>
+
+  <h2>8. أمان البيانات</h2>
+  <p>نتخذ إجراءات أمنية مناسبة لحماية معلوماتك من الوصول غير المصرح به أو التغيير أو الإفشاء أو الإتلاف.</p>
+
+  <h2>9. التغييرات في سياسة الخصوصية</h2>
+  <p>قد نقوم بتحديث سياسة الخصوصية هذه من وقت لآخر. سنقوم بنشر أي تغييرات على هذه الصفحة مع تحديث تاريخ "آخر تحديث".</p>
+
+  <h2>10. اتصل بنا</h2>
+  <p>إذا كان لديك أي أسئلة حول سياسة الخصوصية هذه، يمكنك الاتصال بنا عبر:</p>
+  <ul>
+    <li>البريد الإلكتروني: <a href="mailto:your-email@gmail.com">your-email@gmail.com</a></li>
+    <li>أو من خلال صفحة <a href="index.html#contact">اتصل بنا</a>.</li>
+  </ul>
+
+  <a href="index.html" class="back-btn">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    العودة إلى الموقع
+  </a>
 
 </div>
-
-<!-- Game Modal -->
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal">
-    <div class="modal-header">
-      <h3 id="modalTitle">اللعبة</h3>
-      <button class="modal-close" id="modalClose">✕</button>
-    </div>
-    <div class="modal-body" id="modalBody"></div>
-  </div>
-</div>
-
-<script>
-// ============ FILTER + SEARCH ============
-const catBtns = document.querySelectorAll('.cat-btn');
-const gameCards = document.querySelectorAll('.game-card');
-const searchInput = document.getElementById('searchInput');
-const emptyState = document.getElementById('emptyState');
-let currentCat = 'all';
-
-function filterGames(){
-  const query = searchInput.value.trim().toLowerCase();
-  let visible = 0;
-  gameCards.forEach(card => {
-    const cat = card.dataset.cat;
-    const title = card.querySelector('.game-title').textContent.toLowerCase();
-    const matchCat = currentCat === 'all' || cat === currentCat;
-    const matchSearch = title.includes(query);
-    if(matchCat && matchSearch){ card.style.display = 'flex'; visible++; }
-    else{ card.style.display = 'none'; }
-  });
-  emptyState.style.display = visible === 0 ? 'block' : 'none';
-}
-
-catBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    catBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    currentCat = btn.dataset.cat;
-    filterGames();
-  });
-});
-searchInput.addEventListener('input', filterGames);
-
-// ============ MODAL ============
-const modalOverlay = document.getElementById('modalOverlay');
-const modalTitle = document.getElementById('modalTitle');
-const modalBody = document.getElementById('modalBody');
-const modalClose = document.getElementById('modalClose');
-let activeGameCleanup = null;
-
-function openModal(title){
-  modalTitle.textContent = title;
-  modalOverlay.classList.add('active');
-}
-function closeModal(){
-  modalOverlay.classList.remove('active');
-  modalBody.innerHTML = '';
-  if(activeGameCleanup){ activeGameCleanup(); activeGameCleanup = null; }
-}
-modalClose.addEventListener('click', closeModal);
-modalOverlay.addEventListener('click', (e) => { if(e.target === modalOverlay) closeModal(); });
-
-// ============ GAME LAUNCHER ============
-gameCards.forEach(card => {
-  card.addEventListener('click', () => {
-    const game = card.dataset.game;
-    const title = card.querySelector('.game-title').textContent;
-    openModal(title);
-    if(game === 'snake') startSnake();
-    else if(game === 'memory') startMemory();
-    else if(game === 'xo') startXO();
-    else if(game === 'aim') startAim();
-  });
-});
-
-// ============ 1. SNAKE GAME ============
-function startSnake(){
-  modalBody.innerHTML = `
-    <div class="score-board">النقاط: <span id="snakeScore">0</span> | الأعلى: <span id="snakeHigh">0</span></div>
-    <canvas id="gameCanvas" width="400" height="400"></canvas>
-    <div class="game-controls">
-      <button class="btn btn-primary" id="snakeStart">ابدا اللعب</button>
-      <p style="color:var(--muted); font-size:0.85rem; width:100%;">استعمل أسهم الكيبورد ولا اسحب على الشاشة</p>
-    </div>
-  `;
-  const canvas = document.getElementById('gameCanvas');
-  const ctx = canvas.getContext('2d');
-  const grid = 20;
-  const cells = canvas.width / grid;
-  let snake, dir, food, score, high, running, gameLoop, speed;
-  high = parseInt(localStorage.getItem('snakeHigh') || '0');
-  document.getElementById('snakeHigh').textContent = high;
-
-  function init(){
-    snake = [{x:10, y:10}];
-    dir = {x:1, y:0};
-    score = 0;
-    speed = 120;
-    placeFood();
-    running = false;
-    draw();
-  }
-  function placeFood(){
-    do{
-      food = {x: Math.floor(Math.random()*cells), y: Math.floor(Math.random()*cells)};
-    } while(snake.some(s => s.x === food.x && s.y === food.y));
-  }
-  function draw(){
-    ctx.fillStyle = '#000';
-    ctx.fillRect(0,0,canvas.width,canvas.height);
-    // Grid subtle
-    ctx.strokeStyle = 'rgba(139,92,246,0.08)';
-    for(let i=0; i<=cells; i++){
-      ctx.beginPath(); ctx.moveTo(i*grid,0); ctx.lineTo(i*grid,canvas.height); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(0,i*grid); ctx.lineTo(canvas.width,i*grid); ctx.stroke();
-    }
-    // Food
-    ctx.fillStyle = '#ef4444';
-    ctx.beginPath();
-    ctx.arc(food.x*grid + grid/2, food.y*grid + grid/2, grid/2 - 3, 0, Math.PI*2);
-    ctx.fill();
-    // Snake
-    snake.forEach((s, i) => {
-      ctx.fillStyle = i === 0 ? '#22d3ee' : '#8b5cf6';
-      ctx.fillRect(s.x*grid+2, s.y*grid+2, grid-4, grid-4);
-      if(i === 0){
-        ctx.fillStyle = '#000';
-        ctx.beginPath();
-        ctx.arc(s.x*grid+grid/2, s.y*grid+grid/2, 3, 0, Math.PI*2);
-        ctx.fill();
-      }
-    });
-  }
-  function step(){
-    if(!running) return;
-    const head = {x: snake[0].x + dir.x, y: snake[0].y + dir.y};
-    if(head.x < 0 || head.x >= cells || head.y < 0 || head.y >= cells || snake.some(s => s.x === head.x && s.y === head.y)){
-      running = false;
-      if(score > high){ high = score; localStorage.setItem('snakeHigh', high); document.getElementById('snakeHigh').textContent = high; }
-      ctx.fillStyle = 'rgba(0,0,0,0.7)';
-      ctx.fillRect(0,0,canvas.width,canvas.height);
-      ctx.fillStyle = '#ef4444';
-      ctx.font = 'bold 32px Cairo';
-      ctx.textAlign = 'center';
-      ctx.fillText('انتهت اللعبة!', canvas.width/2, canvas.height/2);
-      ctx.fillStyle = '#fff';
-      ctx.font = 'bold 20px Cairo';
-      ctx.fillText('النقاط: ' + score, canvas.width/2, canvas.height/2 + 40);
-      return;
-    }
-    snake.unshift(head);
-    if(head.x === food.x && head.y === food.y){
-      score += 10;
-      document.getElementById('snakeScore').textContent = score;
-      placeFood();
-      if(speed > 60) speed -= 3;
-    } else {
-      snake.pop();
-    }
-    draw();
-    gameLoop = setTimeout(step, speed);
-  }
-  document.getElementById('snakeStart').onclick = () => {
-    if(running){ running = false; clearTimeout(gameLoop); document.getElementById('snakeStart').textContent = 'ابدا اللعب'; return; }
-    init();
-    running = true;
-    document.getElementById('snakeStart').textContent = 'إيقاف';
-    step();
-  };
-
-  const keyHandler = (e) => {
-    if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.key)) e.preventDefault();
-    if(e.key === 'ArrowUp' && dir.y === 0) dir = {x:0, y:-1};
-    else if(e.key === 'ArrowDown' && dir.y === 0) dir = {x:0, y:1};
-    else if(e.key === 'ArrowLeft' && dir.x === 0) dir = {x:-1, y:0};
-    else if(e.key === 'ArrowRight' && dir.x === 0) dir = {x:1, y:0};
-  };
-  document.addEventListener('keydown', keyHandler);
-  init();
-  activeGameCleanup = () => { clearTimeout(gameLoop); document.removeEventListener('keydown', keyHandler); };
-}
-
-// ============ 2. MEMORY GAME ============
-function startMemory(){
-  modalBody.innerHTML = `
-    <div class="score-board">الحركات: <span id="memMoves">0</span> | الأزواج: <span id="memPairs">0/6</span></div>
-    <div class="memory-grid" id="memGrid"></div>
-    <div class="game-controls">
-      <button class="btn btn-primary" id="memRestart">إعادة اللعب</button>
-    </div>
-  `;
-  const emojis = ['🐍','🧠','🎯','🚀','⭐','🔥'];
-  let deck, flipped, matched, moves, lock;
-
-  function init(){
-    deck = [...emojis, ...emojis].sort(() => Math.random() - 0.5);
-    flipped = []; matched = 0; moves = 0; lock = false;
-    document.getElementById('memMoves').textContent = 0;
-    document.getElementById('memPairs').textContent = '0/6';
-    render();
-  }
-  function render(){
-    const grid = document.getElementById('memGrid');
-    grid.innerHTML = '';
-    deck.forEach((emoji, i) => {
-      const card = document.createElement('div');
-      card.className = 'mem-card';
-      card.dataset.index = i;
-      card.textContent = '';
-      card.onclick = () => flip(i, card);
-      grid.appendChild(card);
-    });
-  }
-  function flip(i, card){
-    if(lock || card.classList.contains('flipped') || card.classList.contains('matched')) return;
-    card.textContent = deck[i];
-    card.classList.add('flipped');
-    flipped.push({i, card});
-    if(flipped.length === 2){
-      moves++;
-      document.getElementById('memMoves').textContent = moves;
-      lock = true;
-      if(deck[flipped[0].i] === deck[flipped[1].i]){
-        setTimeout(() => {
-          flipped.forEach(f => { f.card.classList.add('matched'); f.card.classList.remove('flipped'); });
-          matched++;
-          document.getElementById('memPairs').textContent = matched + '/6';
-          flipped = []; lock = false;
-          if(matched === 6) setTimeout(() => alert('🎉 فزت! عدد الحركات: ' + moves), 300);
-        }, 400);
-      } else {
-        setTimeout(() => {
-          flipped.forEach(f => { f.card.textContent = ''; f.card.classList.remove('flipped'); });
-          flipped = []; lock = false;
-        }, 800);
-      }
-    }
-  }
-  document.getElementById('memRestart').onclick = init;
-  init();
-  activeGameCleanup = () => {};
-}
-
-// ============ 3. XO GAME ============
-function startXO(){
-  modalBody.innerHTML = `
-    <div class="score-board">النتيجة — انت: <span id="xoP">0</span> | الكمبيوتر: <span id="xoC">0</span> | تعادل: <span id="xoD">0</span></div>
-    <div class="xo-grid" id="xoGrid"></div>
-    <div class="game-controls">
-      <button class="btn btn-primary" id="xoRestart">إعادة اللعب</button>
-    </div>
-  `;
-  let board, gameOver, pScore = 0, cScore = 0, dScore = 0;
-  const winLines = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
-
-  function init(){
-    board = Array(9).fill('');
-    gameOver = false;
-    render();
-  }
-  function render(){
-    const grid = document.getElementById('xoGrid');
-    grid.innerHTML = '';
-    board.forEach((val, i) => {
-      const cell = document.createElement('div');
-      cell.className = 'xo-cell';
-      cell.textContent = val;
-      if(val === 'X') cell.style.color = '#22d3ee';
-      else if(val === 'O') cell.style.color = '#f59e0b';
-      cell.onclick = () => play(i);
-      grid.appendChild(cell);
-    });
-  }
-  function play(i){
-    if(gameOver || board[i]) return;
-    board[i] = 'X';
-    render();
-    let w = checkWin();
-    if(w) return endGame(w);
-    if(board.every(c => c)) return endGame('draw');
-    setTimeout(() => {
-      const best = bestMove();
-      board[best] = 'O';
-      render();
-      let w2 = checkWin();
-      if(w2) endGame(w2);
-      else if(board.every(c => c)) endGame('draw');
-    }, 300);
-  }
-  function checkWin(){
-    for(const line of winLines){
-      const [a,b,c] = line;
-      if(board[a] && board[a] === board[b] && board[a] === board[c]) return board[a];
-    }
-    return null;
-  }
-  function bestMove(){
-    // Simple AI: try win, block, else center/corner
-    for(let i=0; i<9; i++){ if(!board[i]){ board[i]='O'; if(checkWin()==='O'){ board[i]=''; return i;} board[i]=''; } }
-    for(let i=0; i<9; i++){ if(!board[i]){ board[i]='X'; if(checkWin()==='X'){ board[i]=''; return i;} board[i]=''; } }
-    if(!board[4]) return 4;
-    const corners = [0,2,6,8].filter(i => !board[i]);
-    if(corners.length) return corners[Math.floor(Math.random()*corners.length)];
-    const empty = board.map((v,i) => v ? null : i).filter(v => v !== null);
-    return empty[Math.floor(Math.random()*empty.length)];
-  }
-  function endGame(result){
-    gameOver = true;
-    if(result === 'X'){ pScore++; }
-    else if(result === 'O'){ cScore++; }
-    else { dScore++; }
-    document.getElementById('xoP').textContent = pScore;
-    document.getElementById('xoC').textContent = cScore;
-    document.getElementById('xoD').textContent = dScore;
-  }
-  document.getElementById('xoRestart').onclick = init;
-  init();
-  activeGameCleanup = () => {};
-}
-
-// ============ 4. AIM TRAINER ============
-function startAim(){
-  modalBody.innerHTML = `
-    <div class="score-board">النقاط: <span id="aimScore">0</span> | الوقت: <span id="aimTime">30</span> ثانية</div>
-    <div class="aim-area" id="aimArea"></div>
-    <div class="game-controls">
-      <button class="btn btn-primary" id="aimStart">ابدا</button>
-    </div>
-  `;
-  const area = document.getElementById('aimArea');
-  let score = 0, time = 30, timer, targetEl, gameActive = false;
-
-  function spawnTarget(){
-    if(targetEl) targetEl.remove();
-    const size = 60;
-    const maxX = area.clientWidth - size;
-    const maxY = area.clientHeight - size;
-    const x = Math.random() * maxX;
-    const y = Math.random() * maxY;
-    targetEl = document.createElement('div');
-    targetEl.className = 'aim-target';
-    targetEl.style.left = x + 'px';
-    targetEl.style.top = y + 'px';
-    targetEl.textContent = '🎯';
-    targetEl.onclick = (e) => {
-      e.stopPropagation();
-      if(!gameActive) return;
-      score++;
-      document.getElementById('aimScore').textContent = score;
-      spawnTarget();
-    };
-    area.appendChild(targetEl);
-  }
-  function startGame(){
-    score = 0; time = 30; gameActive = true;
-    document.getElementById('aimScore').textContent = 0;
-    document.getElementById('aimTime').textContent = 30;
-    document.getElementById('aimStart').textContent = 'جاري...';
-    area.innerHTML = '';
-    spawnTarget();
-    clearInterval(timer);
-    timer = setInterval(() => {
-      time--;
-      document.getElementById('aimTime').textContent = time;
-      if(time <= 0){
-        clearInterval(timer);
-        gameActive = false;
-        if(targetEl) targetEl.remove();
-        area.innerHTML = '<div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; flex-direction:column; color:#fff; font-weight:900; font-size:1.5rem;">انتهى الوقت!<br><span style="color:#22d3ee; font-size:2.5rem;">' + score + '</span><span style="font-size:1rem; color:#94a3b8;">نقطة</span></div>';
-        document.getElementById('aimStart').textContent = 'العب مرة أخرى';
-      }
-    }, 1000);
-  }
-  document.getElementById('aimStart').onclick = startGame;
-  activeGameCleanup = () => { clearInterval(timer); gameActive = false; };
-}
-</script>
 
 </body>
 </html>
