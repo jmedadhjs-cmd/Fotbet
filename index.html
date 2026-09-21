@@ -1,579 +1,90 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl" id="htmlRoot">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arctic Games</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-:root {
-  --bg-dark: #0a0e1a; --bg-card: #141a2e; --bg-hover: #1e2744;
-  --gold: #f4c430; --text: #e5e7eb; --text-dim: #94a3b8; --border: #1f2a44;
-}
-body {
-  font-family: 'Cairo', sans-serif; background: var(--bg-dark); color: var(--text);
-  min-height: 100vh;
-  background-image: radial-gradient(circle at 20% 20%, rgba(59,130,246,0.1) 0%, transparent 50%),
-                    radial-gradient(circle at 80% 80%, rgba(244,196,48,0.05) 0%, transparent 50%);
-}
-.header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 18px 32px; background: rgba(10,14,26,0.95);
-  border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100;
-}
-.logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 900; }
-.logo-icon { font-size: 28px; }
-.logo-text {
-  background: linear-gradient(135deg, #fff, var(--gold));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-}
-.nav { display: flex; gap: 28px; }
-.nav a { color: var(--text-dim); text-decoration: none; font-weight: 700; }
-.nav a:hover { color: var(--gold); }
-.lang-btn {
-  background: var(--bg-card); border: 1px solid var(--border); color: var(--text);
-  padding: 8px 16px; border-radius: 8px; cursor: pointer; font-family: 'Cairo';
-  font-weight: 700;
-}
-.lang-btn:hover { border-color: var(--gold); color: var(--gold); }
-.ad-banner {
-  display: flex; align-items: center; justify-content: center;
-  background: repeating-linear-gradient(45deg, var(--bg-card), var(--bg-card) 10px, var(--bg-hover) 10px, var(--bg-hover) 20px);
-  color: var(--text-dim); font-size: 14px; border: 1px dashed var(--border);
-  margin: 20px auto; max-width: 728px; border-radius: 8px; height: 90px;
-}
-.hero { text-align: center; padding: 70px 20px 50px; }
-.hero h1 {
-  font-size: clamp(28px, 5vw, 52px); font-weight: 900;
-  background: linear-gradient(135deg, #fff, var(--gold));
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-  margin-bottom: 16px;
-}
-.hero p { font-size: clamp(16px, 2vw, 20px); color: var(--text-dim); }
-.games-section { padding: 40px 32px; max-width: 1200px; margin: 0 auto; }
-.games-section h2 { font-size: 32px; margin-bottom: 32px; text-align: center; color: var(--gold); }
-.games-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 24px; }
-.game-card {
-  background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
-  padding: 32px 20px; text-align: center; cursor: pointer; transition: all 0.3s;
-}
-.game-card:hover {
-  transform: translateY(-6px); border-color: var(--gold);
-  background: var(--bg-hover); box-shadow: 0 20px 40px rgba(244,196,48,0.15);
-}
-.game-icon { font-size: 56px; margin-bottom: 16px; display: block; }
-.game-card h3 { font-size: 22px; margin-bottom: 8px; color: var(--gold); }
-.game-card p { font-size: 14px; color: var(--text-dim); }
-.modal {
-  display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.85); z-index: 999;
-  align-items: center; justify-content: center; padding: 20px;
-}
-.modal.active { display: flex; }
-.modal-content {
-  background: var(--bg-card); border: 1px solid var(--border);
-  border-radius: 16px; padding: 24px; max-width: 600px; width: 100%;
-  max-height: 90vh; overflow-y: auto; position: relative;
-}
-.modal-close {
-  position: absolute; top: 12px; left: 12px; background: #dc2626;
-  color: white; border: none; width: 36px; height: 36px;
-  border-radius: 50%; cursor: pointer; font-size: 20px; font-weight: bold;
-}
-.modal-title { color: var(--gold); margin-bottom: 16px; font-size: 24px; }
-.game-canvas { width: 100%; background: #000; border-radius: 8px; display: block; }
-.game-info { display: flex; justify-content: space-between; margin: 12px 0; font-weight: 700; }
-.game-info span { color: var(--gold); }
-.footer {
-  text-align: center; padding: 40px 20px;
-  border-top: 1px solid var(--border); color: var(--text-dim); margin-top: 60px;
-}
-@media (max-width: 768px) {
-  .header { padding: 14px 16px; flex-wrap: wrap; gap: 12px; }
-  .nav { gap: 16px; order: 3; width: 100%; justify-content: center; font-size: 14px; }
-  .games-section { padding: 24px 16px; }
-  .games-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
-}
+  canvas { background:#1a1a2e; display:block; margin:auto; }
+  body { text-align:center; color:white; font-family:sans-serif; }
 </style>
 </head>
 <body>
-
-<header class="header">
-  <div class="logo">
-    <span class="logo-icon">❄️</span>
-    <span class="logo-text">Arctic Games</span>
-  </div>
-  <nav class="nav">
-    <a href="#games" data-ar="الألعاب" data-en="Games">الألعاب</a>
-    <a href="#about" data-ar="حول" data-en="About">حول</a>
-  </nav>
-  <button id="langBtn" class="lang-btn">🌐 EN</button>
-</header>
-
-<div class="ad-banner">
-  <span>مساحة إعلانية - ضع كود AdSense هنا</span>
-</div>
-
-<section class="hero">
-  <h1 data-ar="العب مجاناً بدون تحميل" data-en="Play Free, No Download">العب مجاناً بدون تحميل</h1>
-  <p data-ar="6 ألعاب ممتعة تنتظرك" data-en="6 fun games waiting for you">6 ألعاب ممتعة تنتظرك</p>
-</section>
-
-<section id="games" class="games-section">
-  <h2 data-ar="اختر لعبتك" data-en="Choose Your Game">اختر لعبتك</h2>
-  <div class="games-grid">
-    <div class="game-card" onclick="openGame('snake')">
-      <div class="game-icon">🐍</div>
-      <h3 data-ar="الثعبان" data-en="Snake">الثعبان</h3>
-    </div>
-    <div class="game-card" onclick="openGame('2048')">
-      <div class="game-icon">🔢</div>
-      <h3>2048</h3>
-    </div>
-    <div class="game-card" onclick="openGame('memory')">
-      <div class="game-icon">🧠</div>
-      <h3 data-ar="الذاكرة" data-en="Memory">الذاكرة</h3>
-    </div>
-    <div class="game-card" onclick="openGame('runner')">
-      <div class="game-icon">🏃</div>
-      <h3 data-ar="العدّاء" data-en="Runner">العدّاء</h3>
-    </div>
-    <div class="game-card" onclick="openGame('clicker')">
-      <div class="game-icon">👆</div>
-      <h3 data-ar="النقر" data-en="Clicker">النقر</h3>
-    </div>
-    <div class="game-card" onclick="openGame('math')">
-      <div class="game-icon">➕</div>
-      <h3 data-ar="الرياضيات" data-en="Math">الرياضيات</h3>
-    </div>
-  </div>
-</section>
-
-<section id="about" class="games-section">
-  <h2 data-ar="حول المنصة" data-en="About">حول المنصة</h2>
-  <p style="text-align:center;color:var(--text-dim);">
-    Arctic Games - منصة ألعاب مجانية
-  </p>
-</section>
-
-<footer class="footer">
-  <p>© 2025 Arctic Games</p>
-</footer>
-
-<div class="modal" id="gameModal">
-  <div class="modal-content">
-    <button class="modal-close" onclick="closeGame()">✕</button>
-    <h2 class="modal-title" id="modalTitle">لعبة</h2>
-    <div id="gameContainer"></div>
-  </div>
-</div>
+<h2>فرقة الشوارع - نموذج أولي</h2>
+<canvas id="game" width="600" height="400"></canvas>
+<p>حرّك بالأسهم | اجمع الصناديق الذهبية</p>
 
 <script>
-// ═══ نظام اللغات ═══
-let currentLang = localStorage.getItem('arctic_lang') || 'ar';
-const htmlRoot = document.getElementById('htmlRoot');
-const langBtn = document.getElementById('langBtn');
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
 
-function applyLanguage(lang) {
-  currentLang = lang;
-  localStorage.setItem('arctic_lang', lang);
-  htmlRoot.lang = lang;
-  htmlRoot.dir = lang === 'ar' ? 'rtl' : 'ltr';
-  document.querySelectorAll('[data-ar][data-en]').forEach(el => {
-    const text = el.getAttribute('data-' + lang);
-    if (text) el.textContent = text;
-  });
-  langBtn.textContent = lang === 'ar' ? '🌐 EN' : '🌐 عربي';
-}
-langBtn.addEventListener('click', () => {
-  applyLanguage(currentLang === 'ar' ? 'en' : 'ar');
-});
+const player = { x:300, y:200, size:20, speed:4, score:0 };
+const coins = [];
+const keys = {};
 
-// ═══ نظام الألعاب ═══
-const modal = document.getElementById('gameModal');
-const modalTitle = document.getElementById('modalTitle');
-const gameContainer = document.getElementById('gameContainer');
-let currentGame = null;
-let gameInterval = null;
-let keydownHandler = null;
-
-function openGame(id) {
-  modal.classList.add('active');
-  gameContainer.innerHTML = '';
-  currentGame = id;
-  
-  if (id === 'snake') startSnake();
-  else if (id === '2048') start2048();
-  else if (id === 'memory') startMemory();
-  else if (id === 'runner') startRunner();
-  else if (id === 'clicker') startClicker();
-  else if (id === 'math') startMath();
-}
-
-function closeGame() {
-  modal.classList.remove('active');
-  gameContainer.innerHTML = '';
-  if (gameInterval) { clearInterval(gameInterval); gameInterval = null; }
-  if (keydownHandler) { document.removeEventListener('keydown', keydownHandler); keydownHandler = null; }
-  currentGame = null;
-}
-
-// ═══ لعبة 1: SNAKE 🐍 ═══
-function startSnake() {
-  modalTitle.textContent = currentLang === 'ar' ? '🐍 الثعبان' : '🐍 Snake';
-  gameContainer.innerHTML = `
-    <div class="game-info">
-      <span>النقاط: <b id="snakeScore">0</b></span>
-      <span>الأعلى: <b id="snakeBest">0</b></span>
-    </div>
-    <canvas id="snakeCanvas" class="game-canvas" width="400" height="400"></canvas>
-    <p style="text-align:center;margin-top:12px;color:#94a3b8;">استعمل الأسهم</p>
-  `;
-  const canvas = document.getElementById('snakeCanvas');
-  const ctx = canvas.getContext('2d');
-  const scoreEl = document.getElementById('snakeScore');
-  const bestEl = document.getElementById('snakeBest');
-  const grid = 20, cells = 20;
-  let snake = [{x:10,y:10}];
-  let dir = {x:0,y:0};
-  let food = {x:15,y:10};
-  let score = 0;
-  let best = parseInt(localStorage.getItem('snakeBest') || '0');
-  bestEl.textContent = best;
-  
-  function randomFood() {
-    food = {x: Math.floor(Math.random()*cells), y: Math.floor(Math.random()*cells)};
-  }
-  
-  function draw() {
-    ctx.fillStyle = '#0a0e1a';
-    ctx.fillRect(0,0,400,400);
-    ctx.strokeStyle = '#1f2a44';
-    for (let i=0; i<=cells; i++) {
-      ctx.beginPath(); ctx.moveTo(i*grid,0); ctx.lineTo(i*grid,400); ctx.stroke();
-      ctx.beginPath(); ctx.moveTo(0,i*grid); ctx.lineTo(400,i*grid); ctx.stroke();
-    }
-    snake.forEach((s,i) => {
-      ctx.fillStyle = i===0 ? '#f4c430' : '#3b82f6';
-      ctx.fillRect(s.x*grid+1, s.y*grid+1, grid-2, grid-2);
-    });
-    ctx.fillStyle = '#dc2626';
-    ctx.beginPath();
-    ctx.arc(food.x*grid+grid/2, food.y*grid+grid/2, grid/2-3, 0, Math.PI*2);
-    ctx.fill();
-  }
-  
-  function move() {
-    if (dir.x===0 && dir.y===0) return;
-    const head = {x: snake[0].x+dir.x, y: snake[0].y+dir.y};
-    if (head.x<0 || head.x>=cells || head.y<0 || head.y>=cells ||
-        snake.some(s => s.x===head.x && s.y===head.y)) {
-      if (score > best) { best = score; localStorage.setItem('snakeBest', best); }
-      alert('خسرت! النقاط: ' + score);
-      closeGame();
-      return;
-    }
-    snake.unshift(head);
-    if (head.x===food.x && head.y===food.y) {
-      score++; scoreEl.textContent = score; randomFood();
-    } else snake.pop();
-    draw();
-  }
-  
-  keydownHandler = (e) => {
-    if (e.key==='ArrowUp' && dir.y===0) dir={x:0,y:-1};
-    if (e.key==='ArrowDown' && dir.y===0) dir={x:0,y:1};
-    if (e.key==='ArrowLeft' && dir.x===0) dir={x:-1,y:0};
-    if (e.key==='ArrowRight' && dir.x===0) dir={x:1,y:0};
-  };
-  document.addEventListener('keydown', keydownHandler);
-  draw();
-  gameInterval = setInterval(move, 120);
-}
-
-// ═══ لعبة 2: 2048 🔢 ═══
-function start2048() {
-  modalTitle.textContent = '🔢 2048';
-  gameContainer.innerHTML = `
-    <div class="game-info"><span>النقاط: <b id="s2048">0</b></span></div>
-    <div id="grid2048" style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;background:#1f2a44;padding:8px;border-radius:8px;aspect-ratio:1;"></div>
-    <p style="text-align:center;margin-top:12px;color:#94a3b8;">استعمل الأسهم</p>
-  `;
-  const grid = document.getElementById('grid2048');
-  const scoreEl = document.getElementById('s2048');
-  let board = Array(4).fill().map(() => Array(4).fill(0));
-  let score = 0;
-  const colors = {0:'#2a3550',2:'#eee4da',4:'#ede0c8',8:'#f2b179',16:'#f59563',32:'#f67c5f',64:'#f65e3b',128:'#edcf72',256:'#edcc61',512:'#edc850',1024:'#edc53f',2048:'#edc22e'};
-  
-  function addTile() {
-    const empty = [];
-    board.forEach((row,i) => row.forEach((v,j) => { if (v===0) empty.push({i,j}); }));
-    if (!empty.length) return;
-    const {i,j} = empty[Math.floor(Math.random()*empty.length)];
-    board[i][j] = Math.random()<0.9 ? 2 : 4;
-  }
-  
-  function render() {
-    grid.innerHTML = '';
-    board.forEach(row => row.forEach(v => {
-      const cell = document.createElement('div');
-      cell.style.cssText = `background:${colors[v]||'#3c3a32'};border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:${v>999?'18px':'26px'};color:${v<=4?'#776e65':'#fff'};aspect-ratio:1;`;
-      cell.textContent = v || '';
-      grid.appendChild(cell);
-    }));
-  }
-  
-  function slide(row) {
-    let arr = row.filter(v => v);
-    for (let i=0; i<arr.length-1; i++) {
-      if (arr[i]===arr[i+1]) { arr[i]*=2; score+=arr[i]; arr[i+1]=0; }
-    }
-    arr = arr.filter(v => v);
-    while (arr.length<4) arr.push(0);
-    return arr;
-  }
-  
-  function move(dir) {
-    const before = JSON.stringify(board);
-    if (dir==='left') board = board.map(r => slide(r));
-    if (dir==='right') board = board.map(r => slide(r.reverse()).reverse());
-    if (dir==='up' || dir==='down') {
-      for (let j=0; j<4; j++) {
-        let col = board.map(r => r[j]);
-        if (dir==='down') col = col.reverse();
-        col = slide(col);
-        if (dir==='down') col = col.reverse();
-        for (let i=0; i<4; i++) board[i][j] = col[i];
-      }
-    }
-    if (JSON.stringify(board) !== before) {
-      addTile(); scoreEl.textContent = score; render();
-    }
-  }
-  
-  keydownHandler = (e) => {
-    if (['ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.key)) {
-      e.preventDefault();
-      move(e.key.replace('Arrow','').toLowerCase());
-    }
-  };
-  document.addEventListener('keydown', keydownHandler);
-  addTile(); addTile(); render();
-}
-
-// ═══ لعبة 3: MEMORY 🧠 ═══
-function startMemory() {
-  modalTitle.textContent = currentLang === 'ar' ? '🧠 الذاكرة' : '🧠 Memory';
-  gameContainer.innerHTML = `
-    <div class="game-info">
-      <span>المحاولات: <b id="memMoves">0</b></span>
-      <span>الأزواج: <b id="memPairs">0</b>/8</span>
-    </div>
-    <div id="memGrid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;"></div>
-  `;
-  const emojis = ['❄️','🐧','⛄','🎿','🏔️','🐻','🧊','🌨️'];
-  const cards = [...emojis, ...emojis].sort(() => Math.random()-0.5);
-  const grid = document.getElementById('memGrid');
-  const movesEl = document.getElementById('memMoves');
-  const pairsEl = document.getElementById('memPairs');
-  let flipped = [], matched = 0, moves = 0, lock = false;
-  
-  cards.forEach((emoji,i) => {
-    const card = document.createElement('div');
-    card.style.cssText = 'aspect-ratio:1;background:#1f2a44;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:32px;cursor:pointer;transition:all 0.3s;user-select:none;';
-    card.dataset.emoji = emoji;
-    card.textContent = '?';
-    card.onclick = () => {
-      if (lock || card.classList.contains('flipped') || card.classList.contains('matched')) return;
-      card.classList.add('flipped');
-      card.textContent = card.dataset.emoji;
-      card.style.background = '#2a3550';
-      flipped.push(card);
-      if (flipped.length === 2) {
-        moves++; movesEl.textContent = moves;
-        lock = true;
-        if (flipped[0].dataset.emoji === flipped[1].dataset.emoji) {
-          flipped.forEach(c => { c.classList.add('matched'); c.style.background = '#16a34a'; });
-          matched++; pairsEl.textContent = matched;
-          flipped = []; lock = false;
-          if (matched === 8) setTimeout(() => alert('ربحت! المحاولات: ' + moves), 300);
-        } else {
-          setTimeout(() => {
-            flipped.forEach(c => {
-              c.classList.remove('flipped');
-              c.textContent = '?';
-              c.style.background = '#1f2a44';
-            });
-            flipped = []; lock = false;
-          }, 800);
-        }
-      }
-    };
-    grid.appendChild(card);
+// إنشاء صناديق عشوائية
+for (let i=0; i<8; i++){
+  coins.push({
+    x: Math.random()*560+20,
+    y: Math.random()*360+20,
+    r: 10,
+    alive: true
   });
 }
 
-// ═══ لعبة 4: RUNNER 🏃 ═══
-function startRunner() {
-  modalTitle.textContent = currentLang === 'ar' ? '🏃 العدّاء' : '🏃 Runner';
-  gameContainer.innerHTML = `
-    <div class="game-info">
-      <span>النقاط: <b id="runScore">0</b></span>
-    </div>
-    <canvas id="runCanvas" class="game-canvas" width="600" height="300"></canvas>
-    <p style="text-align:center;margin-top:12px;color:#94a3b8;">اضغط مسافة للقفز</p>
-  `;
-  const canvas = document.getElementById('runCanvas');
-  const ctx = canvas.getContext('2d');
-  const scoreEl = document.getElementById('runScore');
-  let player = {x:80, y:220, w:30, h:50, vy:0, jumping:false};
-  let obstacles = [];
-  let score = 0;
-  let speed = 5;
-  let frame = 0;
-  
-  function draw() {
-    ctx.fillStyle = '#0a0e1a';
-    ctx.fillRect(0,0,600,300);
-    // الأرض
-    ctx.fillStyle = '#1f2a44';
-    ctx.fillRect(0,270,600,30);
-    // اللاعب
-    ctx.fillStyle = '#f4c430';
-    ctx.fillRect(player.x, player.y, player.w, player.h);
-    // العقبات
-    ctx.fillStyle = '#dc2626';
-    obstacles.forEach(o => ctx.fillRect(o.x, o.y, o.w, o.h));
-  }
-  
-  function update() {
-    frame++;
-    score++;
-    scoreEl.textContent = score;
-    
-    // حركة اللاعب
-    if (player.jumping) {
-      player.vy += 0.8;
-      player.y += player.vy;
-      if (player.y >= 220) { player.y = 220; player.vy = 0; player.jumping = false; }
-    }
-    
-    // توليد العقبات
-    if (frame % 80 === 0) {
-      obstacles.push({x:600, y:220, w:25, h:50});
-    }
-    
-    // حركة العقبات
-    obstacles.forEach(o => o.x -= speed);
-    obstacles = obstacles.filter(o => o.x > -50);
-    
-    // التصادم
-    for (let o of obstacles) {
-      if (player.x < o.x+o.w && player.x+player.w > o.x &&
-          player.y < o.y+o.h && player.y+player.h > o.y) {
-        alert('خسرت! النقاط: ' + score);
-        closeGame();
-        return;
+document.addEventListener("keydown", e => keys[e.key] = true);
+document.addEventListener("keyup", e => keys[e.key] = false);
+
+function update(){
+  if(keys["ArrowUp"]) player.y -= player.speed;
+  if(keys["ArrowDown"]) player.y += player.speed;
+  if(keys["ArrowLeft"]) player.x -= player.speed;
+  if(keys["ArrowRight"]) player.x += player.speed;
+
+  // حدود الشاشة
+  player.x = Math.max(0, Math.min(580, player.x));
+  player.y = Math.max(0, Math.min(380, player.y));
+
+  // جمع الصناديق
+  coins.forEach(c => {
+    if(c.alive){
+      const dx = player.x - c.x;
+      const dy = player.y - c.y;
+      if(Math.sqrt(dx*dx+dy*dy) < player.size){
+        c.alive = false;
+        player.score++;
       }
     }
-    
-    draw();
-    gameInterval = requestAnimationFrame(update);
-  }
-  
-  keydownHandler = (e) => {
-    if (e.key === ' ' && !player.jumping) {
-      player.jumping = true;
-      player.vy = -14;
-      e.preventDefault();
+  });
+}
+
+function draw(){
+  ctx.clearRect(0,0,600,400);
+
+  // الصناديق
+  coins.forEach(c => {
+    if(c.alive){
+      ctx.fillStyle = "gold";
+      ctx.beginPath();
+      ctx.arc(c.x, c.y, c.r, 0, Math.PI*2);
+      ctx.fill();
     }
-  };
-  document.addEventListener('keydown', keydownHandler);
-  draw();
+  });
+
+  // اللاعب
+  ctx.fillStyle = "#4ade80";
+  ctx.fillRect(player.x-player.size/2, player.y-player.size/2,
+               player.size, player.size);
+
+  // النقاط
+  ctx.fillStyle = "white";
+  ctx.font = "18px sans-serif";
+  ctx.fillText("النقاط: " + player.score, 15, 30);
+}
+
+function loop(){
   update();
+  draw();
+  requestAnimationFrame(loop);
 }
-
-// ═══ لعبة 5: CLICKER 👆 ═══
-function startClicker() {
-  modalTitle.textContent = currentLang === 'ar' ? '👆 النقر' : '👆 Clicker';
-  gameContainer.innerHTML = `
-    <div class="game-info">
-      <span>النقاط: <b id="clickScore">0</b></span>
-      <span>الوقت: <b id="clickTime">30</b>ث</span>
-    </div>
-    <div id="clickBtn" style="width:200px;height:200px;margin:20px auto;background:radial-gradient(circle,#f4c430,#d4a017);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:80px;cursor:pointer;user-select:none;box-shadow:0 0 40px rgba(244,196,48,0.5);">❄️</div>
-  `;
-  const btn = document.getElementById('clickBtn');
-  const scoreEl = document.getElementById('clickScore');
-  const timeEl = document.getElementById('clickTime');
-  let score = 0, time = 30;
-  
-  btn.onclick = () => {
-    score++;
-    scoreEl.textContent = score;
-  };
-  
-  gameInterval = setInterval(() => {
-    time--;
-    timeEl.textContent = time;
-    if (time <= 0) {
-      clearInterval(gameInterval);
-      alert('انتهى الوقت! النقاط: ' + score);
-      closeGame();
-    }
-  }, 1000);
-}
-
-// ═══ لعبة 6: MATH ➕ ═══
-function startMath() {
-  modalTitle.textContent = currentLang === 'ar' ? '➕ الرياضيات' : '➕ Math';
-  gameContainer.innerHTML = `
-    <div class="game-info">
-      <span>النقاط: <b id="mathScore">0</b></span>
-      <span>الأخطاء: <b id="mathWrong">0</b></span>
-    </div>
-    <div style="text-align:center;padding:30px;">
-      <div id="mathQ" style="font-size:60px;font-weight:900;color:#f4c430;margin-bottom:30px;">—</div>
-      <div id="mathOptions" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;"></div>
-    </div>
-  `;
-  const qEl = document.getElementById('mathQ');
-  const optEl = document.getElementById('mathOptions');
-  const scoreEl = document.getElementById('mathScore');
-  const wrongEl = document.getElementById('mathWrong');
-  let score = 0, wrong = 0;
-  
-  function newQ() {
-    const a = Math.floor(Math.random()*20)+1;
-    const b = Math.floor(Math.random()*20)+1;
-    const answer = a + b;
-    qEl.textContent = `${a} + ${b} = ?`;
-    
-    const options = [answer];
-    while (options.length < 4) {
-      const wrong = answer + Math.floor(Math.random()*20)-10;
-      if (wrong !== answer && !options.includes(wrong) && wrong > 0) options.push(wrong);
-    }
-    options.sort(() => Math.random()-0.5);
-    
-    optEl.innerHTML = '';
-    options.forEach(opt => {
-      const btn = document.createElement('button');
-      btn.textContent = opt;
-      btn.style.cssText = 'padding:20px;font-size:24px;font-weight:900;background:#1f2a44;color:#fff;border:2px solid #3b82f6;border-radius:12px;cursor:pointer;font-family:Cairo;';
-      btn.onclick = () => {
-        if (opt === answer) { score++; scoreEl.textContent = score; newQ(); }
-        else { wrong++; wrongEl.textContent = wrong; btn.style.background = '#dc2626'; }
-      };
-      optEl.appendChild(btn);
-    });
-  }
-  newQ();
-}
-
-// ═══ تشغيل ═══
-applyLanguage(currentLang);
+loop();
 </script>
 </body>
 </html>
